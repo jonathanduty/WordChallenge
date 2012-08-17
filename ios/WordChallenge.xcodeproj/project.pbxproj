@@ -159,6 +159,10 @@
 		319B4D3F15DA872A006125B7 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3D15DA872A006125B7 /* header.png */; };
 		319B4D4215DA892E006125B7 /* keyboard_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D4015DA892E006125B7 /* keyboard_background-hd.png */; };
 		319B4D4315DA892E006125B7 /* keyboard_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D4115DA892E006125B7 /* keyboard_background.png */; };
+		31B9BA5915DE03F800C46139 /* keyboard_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */; };
+		31B9BA5A15DE03F800C46139 /* keyboard_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5815DE03F800C46139 /* keyboard_button.png */; };
+		31B9BA5E15DE55B100C46139 /* letter_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5C15DE55B100C46139 /* letter_background.png */; };
+		31B9BA5F15DE55B100C46139 /* letter_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5D15DE55B100C46139 /* letter_background-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -473,6 +477,10 @@
 		319B4D3D15DA872A006125B7 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Resources/header.png; sourceTree = "<group>"; };
 		319B4D4015DA892E006125B7 /* keyboard_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keyboard_background-hd.png"; path = "Resources/keyboard_background-hd.png"; sourceTree = "<group>"; };
 		319B4D4115DA892E006125B7 /* keyboard_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard_background.png; path = Resources/keyboard_background.png; sourceTree = "<group>"; };
+		31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keyboard_button-hd.png"; path = "Resources/keyboard_button-hd.png"; sourceTree = "<group>"; };
+		31B9BA5815DE03F800C46139 /* keyboard_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard_button.png; path = Resources/keyboard_button.png; sourceTree = "<group>"; };
+		31B9BA5C15DE55B100C46139 /* letter_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = letter_background.png; path = Resources/letter_background.png; sourceTree = "<group>"; };
+		31B9BA5D15DE55B100C46139 /* letter_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "letter_background-hd.png"; path = "Resources/letter_background-hd.png"; sourceTree = "<group>"; };
 		31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardLayer.h; path = Classes/KeyboardLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -543,6 +551,10 @@
 		3111224315D66C1400D6DB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31B9BA5C15DE55B100C46139 /* letter_background.png */,
+				31B9BA5D15DE55B100C46139 /* letter_background-hd.png */,
+				31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */,
+				31B9BA5815DE03F800C46139 /* keyboard_button.png */,
 				319B4D4015DA892E006125B7 /* keyboard_background-hd.png */,
 				319B4D4115DA892E006125B7 /* keyboard_background.png */,
 				319B4D3C15DA872A006125B7 /* header-hd.png */,
@@ -1210,6 +1222,10 @@
 				319B4D3F15DA872A006125B7 /* header.png in Resources */,
 				319B4D4215DA892E006125B7 /* keyboard_background-hd.png in Resources */,
 				319B4D4315DA892E006125B7 /* keyboard_background.png in Resources */,
+				31B9BA5915DE03F800C46139 /* keyboard_button-hd.png in Resources */,
+				31B9BA5A15DE03F800C46139 /* keyboard_button.png in Resources */,
+				31B9BA5E15DE55B100C46139 /* letter_background.png in Resources */,
+				31B9BA5F15DE55B100C46139 /* letter_background-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

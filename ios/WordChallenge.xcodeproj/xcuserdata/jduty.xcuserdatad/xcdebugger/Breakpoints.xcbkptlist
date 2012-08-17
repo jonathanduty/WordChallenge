@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366557860.452525"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "refreshFromModel()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366633986.920464"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "179"
-         endingLineNumber = "179"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
          landmarkName = "handleTouchAtPoint(CCPoint point_)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366633986.920464"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
          landmarkName = "handleTouchAtPoint(CCPoint point_)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366633986.920464"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "148"
-         endingLineNumber = "148"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
          landmarkName = "setupBoard()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366633986.920464"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "246"
-         endingLineNumber = "246"
+         startingLineNumber = "263"
+         endingLineNumber = "263"
          landmarkName = "refreshFromModel()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "366633986.920464"
+         timestampString = "366894106.078902"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "187"
-         endingLineNumber = "187"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
          landmarkName = "handleTouchAtPoint(CCPoint point_)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -131,6 +131,19 @@
          startingLineNumber = "111"
          endingLineNumber = "111"
          landmarkName = "BoardModel(Json::Value protoData)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WordChallenge/Classes/KeyboardLayer.h"
+         timestampString = "366894241.062691"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "buildKeyboard()"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

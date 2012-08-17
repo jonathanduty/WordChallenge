@@ -83,10 +83,8 @@ bool HelloWorld::init()
     this->addChild(m_headerBackground,WC_HUD_ZORDER);
     
     
-    m_keyboardBackground = CCSprite::spriteWithFile("keyboard_background.png");
-    m_keyboardBackground->retain();
-    m_keyboardBackground->setPosition(ccp(160,70));
-    this->addChild(m_keyboardBackground,WC_HUD_ZORDER);
+    m_keyboardLayer = new KeyboardLayer();
+    this->addChild(m_keyboardLayer,WC_HUD_ZORDER);
     
 	return true;
 }

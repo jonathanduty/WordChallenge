@@ -34,9 +34,11 @@ protected:
     int m_y;
     
     CCSprite* m_background;
-    CCLabelTTF* m_letterLabel;
-    CCLabelTTF* m_pointsLabel;
+    CCSprite* m_letter;
+
     std::string m_key;
+    
+
     
 public:
     
@@ -47,7 +49,14 @@ public:
         return oss.str(); 
     }
     
-    BoardLayerCell( int x_, int y_) : m_background(NULL)
+    static std::string stringForNum(int num_)
+    {
+        std::ostringstream oss;
+        oss << num_;
+        return oss.str();
+    }
+    
+    BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL)
     {
         
         m_x = x_;
@@ -79,10 +88,18 @@ public:
             int proto_id = cellModel->getLetterProtoId();
             if (proto_id != WC_NO_LETTER ) 
             {
-                
+                m_letter = CCSprite::spriteWithFile("letter_background.png");
+                m_letter->retain();
                 Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(proto_id);
-                m_letterLabel =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
-                this->addChild(m_letterLabel);
+                CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
+                label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
+                m_letter->addChild(label);
+
+                
+                CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
+                points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
+                m_letter->addChild(points);
+                this->addChild(m_letter);
                 
             }
         }

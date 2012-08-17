@@ -15,6 +15,29 @@
 
 using namespace cocos2d;
 
+#define WC_KEYBOARD_ROW_SIZE 9
+
+#define WC_KEYBOARD_BUTTON_WIDTH 32
+#define WC_KEYBOARD_BUTTON_MARGIN 5
+
+class KeyboardButton : public CCSprite
+{
+protected:
+    Json::Value m_letter;
+    
+public:
+    
+    KeyboardButton(Json::Value letter_)
+    {
+        m_letter = letter_;
+        this->initWithFile("keyboard_button.png");
+    }
+    
+    
+    
+};
+
+
 class KeyboardLayer : public CCLayer
 {
 protected:
@@ -24,12 +47,23 @@ protected:
     
     void buildKeyboard()
     {
-        ProtoDatabase* proto = ProtoDatabase::sharedInstance();
+        ProtoDatabase* proto = ProtoDatabase::shardInstance();
         
-        for (int i=0;proto->getLettersProtoDataSize();i++)
+        int row=0;
+        int col=0;
+        
+        for (int i=0;i < proto->getLettersProtoDataSize();i++)
         {
-            Json::Value letter = proto->getLettersProtoDataById(i);
+            col = i % WC_KEYBOARD_ROW_SIZE;
+            row = (int) (i / WC_KEYBOARD_ROW_SIZE);
             
+            Json::Value letter = proto->getLetterProtoDataById(i);
+            KeyboardButton* button = new KeyboardButton(letter);
+            button->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH/2 +  col * WC_KEYBOARD_BUTTON_WIDTH ,
+                                    130-(row * WC_KEYBOARD_BUTTON_WIDTH)));
+            this->addChild(button);
+            
+            //)
         }
     }
     
@@ -44,7 +78,7 @@ public:
         m_keyboardBackground->setPosition(ccp(160,70));
         this->addChild(m_keyboardBackground);
         
-        
+        this->buildKeyboard();
     }
     
     
