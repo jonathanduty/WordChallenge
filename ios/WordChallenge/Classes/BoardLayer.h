@@ -16,6 +16,8 @@
 #include "BoardModel.h"
 #include "CCLayerPanZoom.h"
 #include "ProtoDatabase.h"
+#include "UIConstants.h"
+
 using namespace cocos2d;
 
 
@@ -23,8 +25,7 @@ using namespace cocos2d;
 
 #define WC_CELL_WIDTH 57
 
-#define WC_DEFAULT_FONT_BOLD "HelveticaBold"
-#define WC_DEFAULT_FONT "Helvetica"
+
 
 
 class BoardLayerCell : public CCNode
@@ -38,7 +39,6 @@ protected:
 
     std::string m_key;
     
-
     
 public:
     

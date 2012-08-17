@@ -481,6 +481,7 @@
 		31B9BA5815DE03F800C46139 /* keyboard_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard_button.png; path = Resources/keyboard_button.png; sourceTree = "<group>"; };
 		31B9BA5C15DE55B100C46139 /* letter_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = letter_background.png; path = Resources/letter_background.png; sourceTree = "<group>"; };
 		31B9BA5D15DE55B100C46139 /* letter_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "letter_background-hd.png"; path = "Resources/letter_background-hd.png"; sourceTree = "<group>"; };
+		31B9BA6015DE7BAB00C46139 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIConstants.h; path = Classes/UIConstants.h; sourceTree = "<group>"; };
 		31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardLayer.h; path = Classes/KeyboardLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1102,6 +1103,7 @@
 				3111241415D670B100D6DB8E /* BoardLayer.h */,
 				3111241E15D7EDF400D6DB8E /* BoardModel.h */,
 				31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */,
+				31B9BA6015DE7BAB00C46139 /* UIConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
