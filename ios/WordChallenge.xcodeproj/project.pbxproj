@@ -163,6 +163,8 @@
 		31B9BA5A15DE03F800C46139 /* keyboard_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5815DE03F800C46139 /* keyboard_button.png */; };
 		31B9BA5E15DE55B100C46139 /* letter_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5C15DE55B100C46139 /* letter_background.png */; };
 		31B9BA5F15DE55B100C46139 /* letter_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5D15DE55B100C46139 /* letter_background-hd.png */; };
+		31B9BA6315DFD27100C46139 /* selected_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA6115DFD27100C46139 /* selected_tile.png */; };
+		31B9BA6415DFD27100C46139 /* selected_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA6215DFD27100C46139 /* selected_tile-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -482,6 +484,8 @@
 		31B9BA5C15DE55B100C46139 /* letter_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = letter_background.png; path = Resources/letter_background.png; sourceTree = "<group>"; };
 		31B9BA5D15DE55B100C46139 /* letter_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "letter_background-hd.png"; path = "Resources/letter_background-hd.png"; sourceTree = "<group>"; };
 		31B9BA6015DE7BAB00C46139 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIConstants.h; path = Classes/UIConstants.h; sourceTree = "<group>"; };
+		31B9BA6115DFD27100C46139 /* selected_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected_tile.png; path = Resources/selected_tile.png; sourceTree = "<group>"; };
+		31B9BA6215DFD27100C46139 /* selected_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selected_tile-hd.png"; path = "Resources/selected_tile-hd.png"; sourceTree = "<group>"; };
 		31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardLayer.h; path = Classes/KeyboardLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,6 +556,8 @@
 		3111224315D66C1400D6DB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31B9BA6115DFD27100C46139 /* selected_tile.png */,
+				31B9BA6215DFD27100C46139 /* selected_tile-hd.png */,
 				31B9BA5C15DE55B100C46139 /* letter_background.png */,
 				31B9BA5D15DE55B100C46139 /* letter_background-hd.png */,
 				31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */,
@@ -1228,6 +1234,8 @@
 				31B9BA5A15DE03F800C46139 /* keyboard_button.png in Resources */,
 				31B9BA5E15DE55B100C46139 /* letter_background.png in Resources */,
 				31B9BA5F15DE55B100C46139 /* letter_background-hd.png in Resources */,
+				31B9BA6315DFD27100C46139 /* selected_tile.png in Resources */,
+				31B9BA6415DFD27100C46139 /* selected_tile-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

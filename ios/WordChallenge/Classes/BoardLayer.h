@@ -26,7 +26,11 @@ using namespace cocos2d;
 #define WC_CELL_WIDTH 57
 
 
-
+#define WC_CELL_BACKGROUND_PRIORITY 0
+#define WC_CELL_SELECTED_PRIORITY 10
+#define WC_CELL_LETTER_BACKGROUND_PRIORITY 20
+#define WC_CELL_LABEL_PRIORITY 30
+#define WC_CELL_POINTS_PRIORITY 40
 
 class BoardLayerCell : public CCNode
 {
@@ -36,9 +40,12 @@ protected:
     
     CCSprite* m_background;
     CCSprite* m_letter;
+    
+    CCSprite* m_selectedBackground;
 
     std::string m_key;
     
+    bool m_selected;
     
 public:
     
@@ -58,7 +65,7 @@ public:
     
     BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL)
     {
-        
+        m_selected = false;
         m_x = x_;
         m_y = y_;
         m_key = keyForCoords(m_x,m_y);
@@ -82,7 +89,7 @@ public:
         if ( cellModel != NULL)
         {
             m_background = CCSprite::spriteWithFile("open_tile.png");
-            this->addChild(m_background);
+            this->addChild(m_background,WC_CELL_BACKGROUND_PRIORITY);
             
             
             int proto_id = cellModel->getLetterProtoId();
@@ -93,13 +100,13 @@ public:
                 Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(proto_id);
                 CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
                 label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
-                m_letter->addChild(label);
+                m_letter->addChild(label, WC_CELL_LABEL_PRIORITY);
 
                 
                 CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
                 points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
-                m_letter->addChild(points);
-                this->addChild(m_letter);
+                m_letter->addChild(points, WC_CELL_POINTS_PRIORITY);
+                this->addChild(m_letter, WC_CELL_LETTER_BACKGROUND_PRIORITY);
                 
             }
         }
@@ -126,6 +133,29 @@ public:
     {
         CCLog(m_key.c_str());
     }
+    
+    void setUnselected()
+    {
+        if ( m_selectedBackground != NULL)
+        {
+            m_selectedBackground->removeFromParentAndCleanup(true);
+        }
+        m_selected = false;
+    }
+    
+    void setSelected()
+    {
+        if (m_selected)
+        {
+            return;
+        }
+        m_selectedBackground = CCSprite::spriteWithFile("selected_tile.png");
+        this->addChild(m_selectedBackground,WC_CELL_SELECTED_PRIORITY);
+        m_selected = true;
+        
+    }
+    
+    bool isSelected() {return m_selected;}
 };
 
 
@@ -145,9 +175,11 @@ protected:
     
     CCMutableDictionary<std::string,BoardLayerCell*>* m_cells;
     
+    BoardLayerCell* m_selectedCell;
     
     void setupBoard()
     {
+        m_selectedCell = NULL;
         
         m_width = BoardModel::instance()->getWidth();
         m_height = BoardModel::instance()->getHeight();
@@ -190,17 +222,28 @@ public:
         return m_cells->objectForKey(BoardLayerCell::keyForCoords(x, y));
     }
     
+    void unselectCell()
+    {
+        if (m_selectedCell != NULL)
+        {
+            m_selectedCell->setUnselected();
+            m_selectedCell = NULL;
+        }
+    }
     
     void handleTouchAtPoint(CCPoint point_)
     {
+        unselectCell();
+        
+        
         int x =  static_cast<int>(point_.x / WC_CELL_WIDTH);
         int y =  static_cast<int>(point_.y / WC_CELL_WIDTH);
         
         BoardLayerCell* cell = this->getCell(x,y);
-        int count = m_cells->count();
         if ( cell != NULL) 
         {
-            cell->handleTouch();
+            cell->setSelected();
+            m_selectedCell = cell;
         }
         
     }
