@@ -46,6 +46,7 @@ protected:
     std::string m_key;
     
     bool m_selected;
+    bool m_open;
     
 public:
     
@@ -69,6 +70,7 @@ public:
         m_x = x_;
         m_y = y_;
         m_key = keyForCoords(m_x,m_y);
+        m_open = false;
         
         this->setContentSize(CCSizeMake(WC_CELL_WIDTH,WC_CELL_WIDTH));
         
@@ -88,6 +90,7 @@ public:
         CellModel* cellModel = BoardModel::instance()->getCellModel(m_x, m_y);
         if ( cellModel != NULL)
         {
+            m_open = true;
             m_background = CCSprite::spriteWithFile("open_tile.png");
             this->addChild(m_background,WC_CELL_BACKGROUND_PRIORITY);
             
@@ -112,6 +115,7 @@ public:
         }
         else 
         {
+            m_open = false;
             m_background = CCSprite::spriteWithFile("closed_tile.png");
             this->addChild(m_background);
         }
@@ -156,6 +160,8 @@ public:
     }
     
     bool isSelected() {return m_selected;}
+    bool isOpen() {return m_open;}
+
 };
 
 
@@ -233,15 +239,15 @@ public:
     
     void handleTouchAtPoint(CCPoint point_)
     {
-        unselectCell();
         
         
         int x =  static_cast<int>(point_.x / WC_CELL_WIDTH);
         int y =  static_cast<int>(point_.y / WC_CELL_WIDTH);
         
         BoardLayerCell* cell = this->getCell(x,y);
-        if ( cell != NULL) 
+        if ( cell != NULL && cell->isOpen())
         {
+            unselectCell();
             cell->setSelected();
             m_selectedCell = cell;
         }
