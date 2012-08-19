@@ -164,6 +164,15 @@ public:
     }
     
     
+    void placeLetterInCell(int x, int y, int letterId_)
+    {
+        CellModel* cell = this->getCellModel(x, y);
+        if (cell != NULL)
+        {
+            cell->setLetterProtoId(letterId_);
+        }
+    }
+    
     int getWidth() {return m_width;}
     int getHeight(){return m_height;}
     

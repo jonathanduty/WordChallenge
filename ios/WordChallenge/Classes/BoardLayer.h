@@ -49,6 +49,48 @@ protected:
     bool m_open;
     bool m_given;
     
+    
+    
+    void drawLetterInCell(int letterId_)
+    {
+        
+        if ( m_letter != NULL)
+        {
+            m_letter->removeFromParentAndCleanup(true);
+        }
+        
+        if ( letterId_ == WC_NO_LETTER)
+        {
+            return;
+        }
+        
+        Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(letterId_);
+        
+        
+        
+        m_letter = CCSprite::spriteWithFile("letter_background.png");
+        m_letter->retain();
+        
+        
+        CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
+        
+        if ( m_given)
+        {
+            label->setColor(ccc3(0 ,255,2));
+        }
+        
+        label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
+        m_letter->addChild(label, WC_CELL_LABEL_PRIORITY);
+        
+        
+        
+        CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
+        points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
+        m_letter->addChild(points, WC_CELL_POINTS_PRIORITY);
+        this->addChild(m_letter, WC_CELL_LETTER_BACKGROUND_PRIORITY);
+    }
+
+    
 public:
     
     static std::string keyForCoords(int x_, int y_)
@@ -88,45 +130,7 @@ public:
     
     bool isGiven() { return m_given;}
     
-    void placeWithLetter(int letterId_)
-    {
         
-        if ( m_letter != NULL)
-        {
-            m_letter->removeFromParentAndCleanup(true);
-        }
-        
-        if ( letterId_ == WC_NO_LETTER)
-        {
-            return;
-        }
-        
-        Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(letterId_);
-
-        
-        
-        m_letter = CCSprite::spriteWithFile("letter_background.png");
-        m_letter->retain();
-       
-        
-        CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
-        
-        if ( m_given)
-        {
-            label->setColor(ccc3(0 ,255,2));
-        }
-        
-        label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
-        m_letter->addChild(label, WC_CELL_LABEL_PRIORITY);
-        
-        
-        
-        CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
-        points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
-        m_letter->addChild(points, WC_CELL_POINTS_PRIORITY);
-        this->addChild(m_letter, WC_CELL_LETTER_BACKGROUND_PRIORITY);
-    }
-    
     void refreshFromModel()
     {
         CellModel* cellModel = BoardModel::instance()->getCellModel(m_x, m_y);
@@ -141,7 +145,7 @@ public:
             m_given = cellModel->isGiven();
 
             
-            this->placeWithLetter(proto_id);
+            this->drawLetterInCell(proto_id);
             
                 
         }
@@ -151,6 +155,15 @@ public:
             m_background = CCSprite::spriteWithFile("closed_tile.png");
             this->addChild(m_background);
         }
+    }
+    
+    
+    void placeLetterInCell(int letterId_)
+    {
+        BoardModel::instance()->placeLetterInCell(m_x, m_y, letterId_);
+        
+        this->refreshFromModel();
+
     }
     
     virtual void refreshFromModelNotification()
@@ -264,7 +277,7 @@ public:
         
         if (m_selectedCell != NULL && !m_selectedCell->isGiven())
         {
-            m_selectedCell->placeWithLetter(event->getLetterId());
+            m_selectedCell->placeLetterInCell(event->getLetterId());
         }
         
         
