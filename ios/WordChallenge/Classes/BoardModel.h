@@ -44,7 +44,7 @@ public:
     void setLetterProtoId(int protoId_) {m_letterProtoId=protoId_;}
     int getLetterProtoId() {return m_letterProtoId;}
     void setGiven(bool given_) {m_given = given_;}
-    bool getGiven() {return m_given;}
+    bool isGiven() {return m_given;}
     
     int getX() {return m_x;}
     int getY() {return m_y;}

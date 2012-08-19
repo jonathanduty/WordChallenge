@@ -24,10 +24,15 @@ using namespace cocos2d;
 #define WC_KEYBOARD_BUTTON_WIDTH 32
 #define WC_KEYBOARD_BUTTON_MARGIN 5
 
-class KeyboardButton : public CCSprite
+
+class KeyboardLayer;
+
+class KeyboardButton : public CCNode
 {
 protected:
     Json::Value m_letter;
+    CCMenu* m_menu;
+    int m_letterId;
     
 public:
     static std::string stringForNum(int num_)
@@ -41,25 +46,50 @@ public:
     KeyboardButton(Json::Value letter_)
     {
         m_letter = letter_;
-        this->initWithFile("keyboard_button.png");
+        m_letterId = m_letter["id"].asInt();
         
+        CCSprite* background = CCSprite::spriteWithFile("keyboard_button.png");
+        CCSprite* selectedBackground = CCSprite::spriteWithFile("keyboard_button.png");
+        selectedBackground->setScale(1.5);
         
         
         CCLabelTTF* label =  CCLabelTTF::labelWithString(m_letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,20);
         label->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH*.5,WC_KEYBOARD_BUTTON_WIDTH*.5));
-        this->addChild(label);
+        background->addChild(label);
         
         
         CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(m_letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,10);
         points->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH*.8,WC_KEYBOARD_BUTTON_WIDTH*.2));
-        this->addChild(points);
-
+        background->addChild(points);
         
+        CCMenuItemSprite* sprite = CCMenuItemSprite::itemFromNormalSprite(background,
+                                                                          selectedBackground,
+                                                                          NULL, this,
+                                                                          menu_selector(KeyboardButton::keyPressed));
+        
+        
+        m_menu = CCMenu::menuWithItems(sprite, NULL);
+        m_menu->retain();
+        this->addChild(m_menu, 1);
+        
+    }
+    
+    
+    virtual void setPosition(CCPoint point_)
+    {
+        
+        m_menu->setPosition(point_);
+    }
+    
+    virtual void keyPressed()
+    {
+        CCNotificationCenter::sharedNotifCenter()->postNotification(WC_EVENT_KEYBOARD_PRESSED,
+                                                                    ButtonPushedEvent::eventWithLetterId(m_letterId));
     }
     
     ~KeyboardButton()
     {
-    
+        m_menu->release();
     }
     
 };

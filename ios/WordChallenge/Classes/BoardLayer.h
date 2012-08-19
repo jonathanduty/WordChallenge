@@ -47,6 +47,7 @@ protected:
     
     bool m_selected;
     bool m_open;
+    bool m_given;
     
 public:
     
@@ -64,7 +65,7 @@ public:
         return oss.str();
     }
     
-    BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL)
+    BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL), m_given(false)
     {
         m_selected = false;
         m_x = x_;
@@ -85,6 +86,47 @@ public:
     }
     
     
+    bool isGiven() { return m_given;}
+    
+    void placeWithLetter(int letterId_)
+    {
+        
+        if ( m_letter != NULL)
+        {
+            m_letter->removeFromParentAndCleanup(true);
+        }
+        
+        if ( letterId_ == WC_NO_LETTER)
+        {
+            return;
+        }
+        
+        Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(letterId_);
+
+        
+        
+        m_letter = CCSprite::spriteWithFile("letter_background.png");
+        m_letter->retain();
+       
+        
+        CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
+        
+        if ( m_given)
+        {
+            label->setColor(ccc3(0 ,255,2));
+        }
+        
+        label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
+        m_letter->addChild(label, WC_CELL_LABEL_PRIORITY);
+        
+        
+        
+        CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
+        points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
+        m_letter->addChild(points, WC_CELL_POINTS_PRIORITY);
+        this->addChild(m_letter, WC_CELL_LETTER_BACKGROUND_PRIORITY);
+    }
+    
     void refreshFromModel()
     {
         CellModel* cellModel = BoardModel::instance()->getCellModel(m_x, m_y);
@@ -94,24 +136,14 @@ public:
             m_background = CCSprite::spriteWithFile("open_tile.png");
             this->addChild(m_background,WC_CELL_BACKGROUND_PRIORITY);
             
-            
             int proto_id = cellModel->getLetterProtoId();
-            if (proto_id != WC_NO_LETTER ) 
-            {
-                m_letter = CCSprite::spriteWithFile("letter_background.png");
-                m_letter->retain();
-                Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(proto_id);
-                CCLabelTTF* label =  CCLabelTTF::labelWithString(letter["label"].asString().c_str(),WC_DEFAULT_FONT_BOLD,40);
-                label->setPosition(ccp(WC_CELL_WIDTH*.5,WC_CELL_WIDTH*.5));
-                m_letter->addChild(label, WC_CELL_LABEL_PRIORITY);
+            
+            m_given = cellModel->isGiven();
 
+            
+            this->placeWithLetter(proto_id);
+            
                 
-                CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,20);
-                points->setPosition(ccp(WC_CELL_WIDTH*.8,WC_CELL_WIDTH*.2));
-                m_letter->addChild(points, WC_CELL_POINTS_PRIORITY);
-                this->addChild(m_letter, WC_CELL_LETTER_BACKGROUND_PRIORITY);
-                
-            }
         }
         else 
         {
@@ -149,7 +181,7 @@ public:
     
     void setSelected()
     {
-        if (m_selected)
+        if (m_selected || m_given)
         {
             return;
         }
@@ -213,6 +245,10 @@ public:
         init();
         m_cells = new CCMutableDictionary<std::string,BoardLayerCell*>();
         this->refreshFromModel();
+        
+        
+        CCNotificationCenter::sharedNotifCenter()->addObserver(this,callfuncO_selector(BoardLayer::keyboardButtonPressed),WC_EVENT_KEYBOARD_PRESSED,NULL);
+        
     }
     
   
@@ -220,8 +256,19 @@ public:
     ~BoardLayer()
     {
         m_cells->release();
+        CCNotificationCenter::sharedNotifCenter()->removeObserver(this, WC_EVENT_KEYBOARD_PRESSED);
     }
     
+    virtual void keyboardButtonPressed(ButtonPushedEvent* event)
+    {
+        
+        if (m_selectedCell != NULL && !m_selectedCell->isGiven())
+        {
+            m_selectedCell->placeWithLetter(event->getLetterId());
+        }
+        
+        
+    }
     
     BoardLayerCell* getCell(int x, int y)
     {
