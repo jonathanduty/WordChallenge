@@ -17,7 +17,7 @@
 
 using namespace cocos2d;
 
-
+class WordModel;
 
 #define WC_NO_LETTER -1
 
@@ -30,6 +30,9 @@ protected:
     int m_letterProtoId;
     bool m_given;
     
+    CCMutableArray<WordModel*>* m_words;
+    
+    
 public:
     CellModel(int x, int y)
     {
@@ -38,8 +41,14 @@ public:
         m_key = keyForCoords(x,y);
         m_given = false;
         m_letterProtoId = WC_NO_LETTER;
+        
+        m_words = new CCMutableArray<WordModel*>();
     }
     
+    ~CellModel()
+    {
+        m_words->release();
+    }
     
     void setLetterProtoId(int protoId_) {m_letterProtoId=protoId_;}
     int getLetterProtoId() {return m_letterProtoId;}
@@ -58,9 +67,54 @@ public:
         oss << x_ << "_" << y_;
         return oss.str(); 
     }
+    
+    void addToWord(WordModel* word_)
+    {
+        m_words->addObject(word_);
+    }
 
 };
 
+
+
+class WordModel : public CCObject
+{
+protected:
+    Json::Value m_protoData;
+    
+    CCMutableArray<CellModel*>* m_cells;
+
+public:
+    WordModel(Json::Value protoData_)
+    {
+        m_protoData = protoData_;
+        m_cells = new CCMutableArray<CellModel*>();
+
+    }
+    
+    
+    
+    ~WordModel()
+    {
+        m_cells->release();
+    }
+
+    
+    void cellChanged(CellModel* cell_)
+    {
+        
+    }
+    
+    void addCell(CellModel* cell_)
+    {
+        m_cells->addObject(cell_);
+        cell_->addToWord(this);
+    }
+    
+    
+
+    
+};
 
 
 class BoardModel;
@@ -92,14 +146,20 @@ protected:
         for ( int i=0;i < words.size();i++)
         {
             Json::Value word = words[i];
+            WordModel* wordModel = new WordModel(word);
             CellModel* cell = NULL;
 
             if ( word["orientation"].asString() == "horizontal" )
             {
                 for ( int x=word["begin_x"].asInt(); x< word["begin_x"].asInt() + word["length"].asInt();x++)
                 {
-                    cell = new CellModel(x,word["begin_y"].asInt());
+                    cell = getCellModel(x,word["begin_y"].asInt());
+                    if ( cell == NULL)
+                    {
+                        cell = new CellModel(x,word["begin_y"].asInt());
+                    }
                     m_cells->setObject(cell,cell->getKey());
+                    wordModel->addCell(cell);
                     cell->release();
                 }
             }
@@ -107,8 +167,13 @@ protected:
             {
                 for ( int y=word["begin_y"].asInt(); y< word["begin_y"].asInt() + word["length"].asInt();y++)
                 {
-                    cell = new CellModel(word["begin_x"].asInt(),y);
+                    cell = getCellModel(word["begin_x"].asInt(), y);
+                    if ( cell == NULL)
+                    {
+                        cell = new CellModel(word["begin_x"].asInt(),y);
+                    }
                     m_cells->setObject(cell,cell->getKey());
+                    wordModel->addCell(cell);
                     cell->release();
                 }
             }
