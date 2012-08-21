@@ -10,6 +10,8 @@
 #define WordChallenge_BoardModel_h
 
 #include "cocos2d.h"
+#include "BoardModel.h"
+#include "WordModel.h"
 #include "json.h"
 #include <string>
 #include <sstream>
@@ -17,7 +19,10 @@
 
 using namespace cocos2d;
 
-class WordModel;
+
+
+
+
 
 #define WC_NO_LETTER -1
 
@@ -32,6 +37,13 @@ protected:
     
     CCMutableArray<WordModel*>* m_words;
     
+    void notifyWords()
+    {
+        for (int i=0;i<m_words->count();i++)
+        {
+            m_words->getObjectAtIndex(i)->cellChanged(this);
+        }
+    }
     
 public:
     CellModel(int x, int y)
@@ -50,7 +62,10 @@ public:
         m_words->release();
     }
     
-    void setLetterProtoId(int protoId_) {m_letterProtoId=protoId_;}
+    void setLetterProtoId(int protoId_)
+    {
+        m_letterProtoId=protoId_;
+    }
     int getLetterProtoId() {return m_letterProtoId;}
     void setGiven(bool given_) {m_given = given_;}
     bool isGiven() {return m_given;}
@@ -59,7 +74,12 @@ public:
     int getY() {return m_y;}
     std::string getKey() { return m_key;}
     
+    CCMutableArray<WordModel*>* getWords() { return m_words;}
     
+    bool containsLetter()
+    {
+        return m_letterProtoId != WC_NO_LETTER;
+    }
     
     static std::string keyForCoords(int x_, int y_)
     {
@@ -73,46 +93,29 @@ public:
         m_words->addObject(word_);
     }
 
-};
-
-
-
-class WordModel : public CCObject
-{
-protected:
-    Json::Value m_protoData;
     
-    CCMutableArray<CellModel*>* m_cells;
-
-public:
-    WordModel(Json::Value protoData_)
+    WordModelState getWordState()
     {
-        m_protoData = protoData_;
-        m_cells = new CCMutableArray<CellModel*>();
-
-    }
-    
-    
-    
-    ~WordModel()
-    {
-        m_cells->release();
-    }
-
-    
-    void cellChanged(CellModel* cell_)
-    {
+        bool incompleteFound = false;
+        for (int i=0;i<m_words->count();i++)
+        {
+            WordModelState state = m_words->getObjectAtIndex(i)->getState();
+            if ( state == WC_WORD_STATE_INCORRECT_WORD)
+            {
+                return WC_WORD_STATE_INCORRECT_WORD;
+            }
+            else if ( state == WC_WORD_STATE_INCOMPLETE)
+            {
+                incompleteFound = true;
+            }
+        }
         
+        if (incompleteFound )
+        {
+            return WC_WORD_STATE_INCOMPLETE;
+        }
+        return WC_WORD_STATE_CORRECT_WORD;
     }
-    
-    void addCell(CellModel* cell_)
-    {
-        m_cells->addObject(cell_);
-        cell_->addToWord(this);
-    }
-    
-    
-
     
 };
 
@@ -128,6 +131,7 @@ protected:
     Json::Value m_protoData;
     
     CCMutableDictionary<std::string,CellModel*>* m_cells;
+    CCMutableArray<WordModel*>* m_words;
     
     int m_width;
     int m_height;
@@ -137,7 +141,7 @@ protected:
         m_protoData = protoData;
         
         m_cells = new CCMutableDictionary<std::string,CellModel*>();
-        
+        m_words = new CCMutableArray<WordModel*>();
         
         m_width = m_protoData["width"].asInt();
         m_height = m_protoData["height"].asInt();
@@ -147,6 +151,7 @@ protected:
         {
             Json::Value word = words[i];
             WordModel* wordModel = new WordModel(word);
+            m_words->addObject(wordModel);
             CellModel* cell = NULL;
 
             if ( word["orientation"].asString() == "horizontal" )
@@ -220,6 +225,7 @@ public:
     ~BoardModel()
     {
         m_cells->release();
+        m_words->release();
     }
     
     

@@ -27,6 +27,7 @@ using namespace cocos2d;
 
 
 #define WC_CELL_BACKGROUND_PRIORITY 0
+#define WC_CELL_WORD_STATE_PRIORITY 5
 #define WC_CELL_SELECTED_PRIORITY 10
 #define WC_CELL_LETTER_BACKGROUND_PRIORITY 20
 #define WC_CELL_LABEL_PRIORITY 30
@@ -40,6 +41,7 @@ protected:
     
     CCSprite* m_background;
     CCSprite* m_letter;
+    CCSprite* m_stateSprite;
     
     CCSprite* m_selectedBackground;
 
@@ -107,7 +109,7 @@ public:
         return oss.str();
     }
     
-    BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL), m_given(false)
+    BoardLayerCell( int x_, int y_) : m_background(NULL), m_letter(NULL), m_given(false), m_stateSprite(NULL)
     {
         m_selected = false;
         m_x = x_;
@@ -133,6 +135,13 @@ public:
         
     void refreshFromModel()
     {
+        
+        if ( m_stateSprite != NULL)
+        {
+            m_stateSprite->removeFromParentAndCleanup(true);
+            m_stateSprite = NULL;
+        }
+        
         CellModel* cellModel = BoardModel::instance()->getCellModel(m_x, m_y);
         if ( cellModel != NULL)
         {
@@ -147,7 +156,8 @@ public:
             
             this->drawLetterInCell(proto_id);
             
-                
+            WordModelState wordState = cellModel->getWordState();
+            this->displayBoardState(wordState);
         }
         else 
         {
@@ -157,6 +167,14 @@ public:
         }
     }
     
+    void displayBoardState(WordModelState state_)
+    {
+        if ( state_ == WC_WORD_STATE_CORRECT_WORD )
+        {
+            m_stateSprite = CCSprite::spriteWithFile("word_made_tile.png");
+            this->addChild(m_stateSprite,WC_CELL_WORD_STATE_PRIORITY);
+        }
+    }
     
     void placeLetterInCell(int letterId_)
     {
@@ -181,6 +199,12 @@ public:
     void handleTouch()
     {
         CCLog(m_key.c_str());
+    }
+    
+    CellModel* getCellModel()
+    {
+        return BoardModel::instance()->getCellModel(m_x, m_y);
+
     }
     
     void setUnselected()
@@ -278,6 +302,27 @@ public:
         if (m_selectedCell != NULL && !m_selectedCell->isGiven())
         {
             m_selectedCell->placeLetterInCell(event->getLetterId());
+            
+            
+            // refresh the board state
+            CellModel* cellModel = m_selectedCell->getCellModel();
+            CCMutableArray<WordModel*>* words = cellModel->getWords();
+            for (int i = 0;i<words->count();i++)
+            {
+                WordModel* word = words->getObjectAtIndex(i);
+                
+                WordModelState state = word->getState();
+                CCMutableArray<CellModel*>* cells = word->getCells();
+                for ( int x=0;x<cells->count();x++)
+                {
+                    CellModel* cell = cells->getObjectAtIndex(x);
+                    BoardLayerCell* layerCell = this->getCell(cell->getX(),cell->getY());
+                    layerCell->displayBoardState(cell->getWordState());
+                }
+                
+            }
+
+            
         }
         
         
