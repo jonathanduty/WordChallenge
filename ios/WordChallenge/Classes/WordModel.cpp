@@ -8,6 +8,7 @@
 
 #include "WordModel.h"
 #include "BoardModel.h"
+#include "ProtoDatabase.h"
 
 WordModel::WordModel(Json::Value protoData_)
 {
@@ -46,6 +47,26 @@ bool WordModel::isFull()
     }
     return true;
 }
+
+
+int WordModel::getPoints()
+{
+    int score = 0;
+    for (int i=0;i<m_cells->count();i++)
+    {
+        CellModel* cell = m_cells->getObjectAtIndex(i);
+        if ( !cell->containsLetter()  )
+        {
+            return 0;
+        }
+        int letterProto = cell->getLetterProtoId();
+        Json::Value letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(letterProto);
+        score +=letter["points"].asInt();
+        
+    }
+    return score;
+}
+
 
 bool WordModel::isCorrect()
 {

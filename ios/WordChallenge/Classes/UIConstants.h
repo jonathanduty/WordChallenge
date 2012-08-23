@@ -19,6 +19,9 @@ using namespace cocos2d;
 
 #define WC_EVENT_KEYBOARD_PRESSED "WC_EVENT_KEYBOARD_PRESSED"
 
+#define WC_EVENT_LETTER_PLACED "WC_EVENT_LETTER_PLACED"
+
+
 class ButtonPushedEvent : public CCObject
 {
 protected:

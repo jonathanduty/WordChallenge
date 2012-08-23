@@ -82,6 +82,10 @@ bool HelloWorld::init()
     m_headerBackground->setPosition(ccp(160,470));
     this->addChild(m_headerBackground,WC_HUD_ZORDER);
     
+    m_scoreHeader = new ScoreHeader();
+    m_scoreHeader->retain();
+    m_scoreHeader->setPosition(ccp(160,470));
+    this->addChild(m_scoreHeader,WC_HUD_ZORDER+1);
     
     m_keyboardLayer = new KeyboardLayer();
     this->addChild(m_keyboardLayer,WC_HUD_ZORDER);

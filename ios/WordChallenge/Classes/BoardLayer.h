@@ -321,7 +321,8 @@ public:
                 }
                 
             }
-
+            
+            CCNotificationCenter::sharedNotifCenter()->postNotification(WC_EVENT_LETTER_PLACED);
             
         }
         

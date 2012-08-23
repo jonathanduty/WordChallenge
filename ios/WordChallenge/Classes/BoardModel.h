@@ -28,6 +28,9 @@ using namespace cocos2d;
 
 class CellModel : public CCObject
 {
+friend BoardModel;
+    
+    
 protected:
     int m_x;
     int m_y;
@@ -43,6 +46,12 @@ protected:
         {
             m_words->getObjectAtIndex(i)->cellChanged(this);
         }
+    }
+    
+    
+    void setLetterProtoId(int protoId_)
+    {
+        m_letterProtoId=protoId_;
     }
     
 public:
@@ -62,10 +71,7 @@ public:
         m_words->release();
     }
     
-    void setLetterProtoId(int protoId_)
-    {
-        m_letterProtoId=protoId_;
-    }
+    
     int getLetterProtoId() {return m_letterProtoId;}
     void setGiven(bool given_) {m_given = given_;}
     bool isGiven() {return m_given;}
@@ -136,9 +142,13 @@ protected:
     int m_width;
     int m_height;
     
+    int m_score;
+    
     BoardModel(Json::Value protoData)
     {
         m_protoData = protoData;
+        
+        m_score = 0;
         
         m_cells = new CCMutableDictionary<std::string,CellModel*>();
         m_words = new CCMutableArray<WordModel*>();
@@ -199,9 +209,20 @@ protected:
             }
         }
         
-        
+        this->refreshScore();
     }
     
+    void refreshScore()
+    {
+        int score = 0;
+        for (int i = 0;i<m_words->count();i++)
+        {
+            WordModel* word = m_words->getObjectAtIndex(i);
+            score+= word->getPoints();
+        }
+        m_score = score;
+    }
+
     
 public:
     
@@ -242,11 +263,15 @@ public:
         {
             cell->setLetterProtoId(letterId_);
         }
+        
+        this->refreshScore();
     }
     
     int getWidth() {return m_width;}
     int getHeight(){return m_height;}
     
+    int getScore() {return m_score;}
+        
 };
 
 

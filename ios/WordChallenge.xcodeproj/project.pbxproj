@@ -478,6 +478,7 @@
 		312F87A515E270C3006F64DE /* word_made_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "word_made_tile-hd.png"; path = "Resources/word_made_tile-hd.png"; sourceTree = "<group>"; };
 		312F87A915E3A27F006F64DE /* WordModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WordModel.cpp; path = Classes/WordModel.cpp; sourceTree = "<group>"; };
 		312F87AB15E3A32A006F64DE /* WordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WordModel.h; path = Classes/WordModel.h; sourceTree = "<group>"; };
+		312FC9E415E4ED010022E9DE /* ScoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScoreHeader.h; path = Classes/ScoreHeader.h; sourceTree = "<group>"; };
 		319B4D3315DA62AB006125B7 /* closed_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "closed_tile-hd.png"; path = "Resources/closed_tile-hd.png"; sourceTree = "<group>"; };
 		319B4D3415DA62AB006125B7 /* closed_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed_tile.png; path = Resources/closed_tile.png; sourceTree = "<group>"; };
 		319B4D3815DA63DC006125B7 /* open_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "open_tile-hd.png"; path = "Resources/open_tile-hd.png"; sourceTree = "<group>"; };
@@ -1117,10 +1118,11 @@
 				3111241C15D67C9000D6DB8E /* CCLayerPanZoom.cpp */,
 				3111241415D670B100D6DB8E /* BoardLayer.h */,
 				3111241E15D7EDF400D6DB8E /* BoardModel.h */,
-				312F87A915E3A27F006F64DE /* WordModel.cpp */,
 				31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */,
 				31B9BA6015DE7BAB00C46139 /* UIConstants.h */,
 				312F87AB15E3A32A006F64DE /* WordModel.h */,
+				312F87A915E3A27F006F64DE /* WordModel.cpp */,
+				312FC9E415E4ED010022E9DE /* ScoreHeader.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

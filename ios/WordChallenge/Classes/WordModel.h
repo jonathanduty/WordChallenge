@@ -22,6 +22,8 @@ enum {
 } typedef WordModelState;
 
 class CellModel;
+class BoardModel;
+
 
 class WordModel : public CCObject
 {
@@ -47,6 +49,9 @@ public:
     WordModelState getState();
     
     CCMutableArray<CellModel*>* getCells() {return m_cells;}
+    
+    
+    int getPoints();
     
 };
 
