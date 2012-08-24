@@ -21,20 +21,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "367409676.824455"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "350"
-         endingLineNumber = "350"
-         landmarkName = "handleTouchAtPoint(CCPoint point_)"
-         landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "367409676.824455"
+         timestampString = "367494965.857619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "357"
@@ -47,11 +34,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "367242677.722235"
+         timestampString = "367494965.857619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
+         landmarkName = "handleTouchAtPoint(CCPoint point_)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WordChallenge/Classes/BoardLayer.h"
+         timestampString = "367494965.857619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "279"
+         endingLineNumber = "279"
          landmarkName = "setupBoard()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "367409676.824455"
+         timestampString = "367494965.857619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "418"
-         endingLineNumber = "418"
+         startingLineNumber = "426"
+         endingLineNumber = "426"
          landmarkName = "refreshFromModel()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardLayer.h"
-         timestampString = "367409676.824455"
+         timestampString = "367494965.857619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "359"
-         endingLineNumber = "359"
+         startingLineNumber = "366"
+         endingLineNumber = "366"
          landmarkName = "handleTouchAtPoint(CCPoint point_)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
          landmarkName = "BoardModel(Json::Value protoData)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "203"
-         endingLineNumber = "203"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "BoardModel(Json::Value protoData)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "BoardModel(Json::Value protoData)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
+         startingLineNumber = "206"
+         endingLineNumber = "206"
          landmarkName = "BoardModel(Json::Value protoData)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
          landmarkName = "class CellModel"
          landmarkType = "3">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
          landmarkName = "notifyWords()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
          landmarkName = "getWordState()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/BoardModel.h"
-         timestampString = "367410291.182428"
+         timestampString = "367421589.128181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "getWordState()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -248,6 +248,45 @@
          startingLineNumber = "54"
          endingLineNumber = "54"
          landmarkName = "refreshScore()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WordChallenge/Classes/WordDictionary.h"
+         timestampString = "367421613.484243"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "wordCorrect(std::string word)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WordChallenge/Classes/WordDictionary.h"
+         timestampString = "367421933.819795"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "WordDictionary()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WordChallenge/Classes/WordDictionary.h"
+         timestampString = "367422035.632465"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
+         landmarkName = "wordCorrect(std::string word)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

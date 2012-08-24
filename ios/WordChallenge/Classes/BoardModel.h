@@ -10,13 +10,13 @@
 #define WordChallenge_BoardModel_h
 
 #include "cocos2d.h"
-#include "BoardModel.h"
+#include "ProtoDatabase.h"
 #include "WordModel.h"
 #include "json.h"
 #include <string>
 #include <sstream>
 #include <iostream>
-
+#include "WordDictionary.h"
 using namespace cocos2d;
 
 
@@ -36,6 +36,9 @@ protected:
     int m_y;
     std::string m_key;
     int m_letterProtoId;
+    Json::Value m_letter;
+    
+    
     bool m_given;
     
     CCMutableArray<WordModel*>* m_words;
@@ -51,8 +54,18 @@ protected:
     
     void setLetterProtoId(int protoId_)
     {
+        if ( protoId_ == WC_NO_LETTER)
+        {
+            m_letterProtoId=protoId_;
+
+            m_letter = NULL;
+        }
         m_letterProtoId=protoId_;
+        m_letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(protoId_);
+        
+        
     }
+    
     
 public:
     CellModel(int x, int y)
@@ -73,6 +86,8 @@ public:
     
     
     int getLetterProtoId() {return m_letterProtoId;}
+    Json::Value getLetter() { return m_letter;}
+    
     void setGiven(bool given_) {m_given = given_;}
     bool isGiven() {return m_given;}
     

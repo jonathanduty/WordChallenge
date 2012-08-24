@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 #include "HelloWorldScene.h"
 #include "ProtoDatabase.h"
+#include "WordDictionary.h"
 
 USING_NS_CC;
 
@@ -76,6 +77,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
     // initialize our protodata.
     ProtoDatabase::shardInstance();
+    WordDictionary::instance();
+    
     
 	// initialize director
 	CCDirector *pDirector = CCDirector::sharedDirector();

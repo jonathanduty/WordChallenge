@@ -169,6 +169,13 @@ public:
     
     void displayBoardState(WordModelState state_)
     {
+        
+        if ( m_stateSprite != NULL)
+        {
+            m_stateSprite->removeFromParentAndCleanup(true);
+            m_stateSprite = NULL;
+        }
+        
         if ( state_ == WC_WORD_STATE_CORRECT_WORD )
         {
             m_stateSprite = CCSprite::spriteWithFile("word_made_tile.png");
@@ -364,8 +371,9 @@ public:
     
     void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
     {
-        m_movingTouch = false;
+        m_movingTouch = false;        
     }
+
     void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
     {
         m_movingTouch = true;

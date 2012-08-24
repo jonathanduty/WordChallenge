@@ -9,6 +9,9 @@
 #include "WordModel.h"
 #include "BoardModel.h"
 #include "ProtoDatabase.h"
+#include <string>
+#include <sstream>
+#include <iostream>
 
 WordModel::WordModel(Json::Value protoData_)
 {
@@ -32,8 +35,21 @@ void WordModel::cellChanged(CellModel* cell_)
 
 void WordModel::addCell(CellModel* cell_)
 {
-    m_cells->addObject(cell_);
     cell_->addToWord(this);
+
+    
+    CellModel* current = NULL;
+    for ( int i=0;i<m_cells->count();i++ )
+    {
+        current = m_cells->getObjectAtIndex(i);
+        if( cell_->getX() > current->getX() || cell_->getY() > current->getY())
+        {
+            m_cells->insertObjectAtIndex(cell_, i);
+            return;
+        }
+        
+    }
+    m_cells->addObject(cell_);
 }
 
 bool WordModel::isFull()
@@ -67,15 +83,30 @@ int WordModel::getPoints()
     return score;
 }
 
+std::string WordModel::getWord()
+{
+    
+    std::ostringstream oss;
+    
+    for (int i=0;i<m_cells->count();i++)
+    {
+        CellModel* cell = m_cells->getObjectAtIndex(i);
+        if ( !cell->containsLetter()  )
+        {
+            oss << " ";
+
+        }
+        oss << cell->getLetter()["label"].asString();
+    }
+    
+    return oss.str().c_str();
+        
+}
 
 bool WordModel::isCorrect()
 {
-    // todo fix.
-    if ( isFull() )
-    {
-        return true;
-    }
-    return false;
+    return WordDictionary::instance()->wordCorrect( getWord());
+    
 }
 
 WordModelState WordModel::getState()

@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Json.h"
+#include <string>
 
 
 using namespace cocos2d;
@@ -52,6 +53,8 @@ public:
     
     
     int getPoints();
+    
+    std::string getWord();
     
 };
 

@@ -154,6 +154,8 @@
 		312F87A615E270C3006F64DE /* word_made_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 312F87A415E270C3006F64DE /* word_made_tile.png */; };
 		312F87A715E270C3006F64DE /* word_made_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 312F87A515E270C3006F64DE /* word_made_tile-hd.png */; };
 		312F87AA15E3A27F006F64DE /* WordModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 312F87A915E3A27F006F64DE /* WordModel.cpp */; };
+		315C356115E64D4E006EC00D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C356015E64D4E006EC00D /* libsqlite3.dylib */; };
+		315C356915E66474006EC00D /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 315C356815E66474006EC00D /* dictionary.db */; };
 		319B4D3515DA62AB006125B7 /* closed_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3315DA62AB006125B7 /* closed_tile-hd.png */; };
 		319B4D3615DA62AB006125B7 /* closed_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3415DA62AB006125B7 /* closed_tile.png */; };
 		319B4D3A15DA63DD006125B7 /* open_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3815DA63DC006125B7 /* open_tile-hd.png */; };
@@ -479,6 +481,9 @@
 		312F87A915E3A27F006F64DE /* WordModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WordModel.cpp; path = Classes/WordModel.cpp; sourceTree = "<group>"; };
 		312F87AB15E3A32A006F64DE /* WordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WordModel.h; path = Classes/WordModel.h; sourceTree = "<group>"; };
 		312FC9E415E4ED010022E9DE /* ScoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScoreHeader.h; path = Classes/ScoreHeader.h; sourceTree = "<group>"; };
+		315C356015E64D4E006EC00D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		315C356315E64DA5006EC00D /* WordDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordDictionary.h; path = Classes/WordDictionary.h; sourceTree = "<group>"; };
+		315C356815E66474006EC00D /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		319B4D3315DA62AB006125B7 /* closed_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "closed_tile-hd.png"; path = "Resources/closed_tile-hd.png"; sourceTree = "<group>"; };
 		319B4D3415DA62AB006125B7 /* closed_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed_tile.png; path = Resources/closed_tile.png; sourceTree = "<group>"; };
 		319B4D3815DA63DC006125B7 /* open_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "open_tile-hd.png"; path = "Resources/open_tile-hd.png"; sourceTree = "<group>"; };
@@ -502,6 +507,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315C356115E64D4E006EC00D /* libsqlite3.dylib in Frameworks */,
 				3111223315D66C1400D6DB8E /* QuartzCore.framework in Frameworks */,
 				3111223515D66C1400D6DB8E /* OpenGLES.framework in Frameworks */,
 				3111223715D66C1400D6DB8E /* OpenAL.framework in Frameworks */,
@@ -519,6 +525,7 @@
 		3111222315D66C1400D6DB8E = {
 			isa = PBXGroup;
 			children = (
+				315C356015E64D4E006EC00D /* libsqlite3.dylib */,
 				3111224215D66C1400D6DB8E /* WordChallenge */,
 				3111223115D66C1400D6DB8E /* Frameworks */,
 				3111222F15D66C1400D6DB8E /* Products */,
@@ -564,6 +571,7 @@
 		3111224315D66C1400D6DB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				315C356815E66474006EC00D /* dictionary.db */,
 				312F87A415E270C3006F64DE /* word_made_tile.png */,
 				312F87A515E270C3006F64DE /* word_made_tile-hd.png */,
 				31B9BA6115DFD27100C46139 /* selected_tile.png */,
@@ -1123,6 +1131,7 @@
 				312F87AB15E3A32A006F64DE /* WordModel.h */,
 				312F87A915E3A27F006F64DE /* WordModel.cpp */,
 				312FC9E415E4ED010022E9DE /* ScoreHeader.h */,
+				315C356315E64DA5006EC00D /* WordDictionary.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1251,6 +1260,7 @@
 				31B9BA6415DFD27100C46139 /* selected_tile-hd.png in Resources */,
 				312F87A615E270C3006F64DE /* word_made_tile.png in Resources */,
 				312F87A715E270C3006F64DE /* word_made_tile-hd.png in Resources */,
+				315C356915E66474006EC00D /* dictionary.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
