@@ -42,7 +42,7 @@ void WordModel::addCell(CellModel* cell_)
     for ( int i=0;i<m_cells->count();i++ )
     {
         current = m_cells->getObjectAtIndex(i);
-        if( cell_->getX() > current->getX() || cell_->getY() > current->getY())
+        if( cell_->getX() < current->getX() || cell_->getY() > current->getY())
         {
             m_cells->insertObjectAtIndex(cell_, i);
             return;
@@ -126,5 +126,27 @@ WordModelState WordModel::getState()
             return WC_WORD_STATE_INCORRECT_WORD;
         }
     }
+}
+
+CellModel* WordModel::getNextCell(CellModel* cell_)
+{
+    for ( int i=0;i<m_cells->count();i++ )
+    {
+        CellModel* current = m_cells->getObjectAtIndex(i);
+        if( current->getX() ==  cell_->getX() && current->getY() == cell_->getY() && i < m_cells->count() -1)
+        {
+            CellModel* next = m_cells->getObjectAtIndex(i+1);
+            if( next->isGiven())
+            {
+                return getNextCell(next);
+            }
+            else
+            {
+                return next;
+            }
+        }
+
+    }
+    return NULL;
 }
 

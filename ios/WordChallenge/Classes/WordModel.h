@@ -56,6 +56,9 @@ public:
     
     std::string getWord();
     
+    
+    CellModel* getNextCell(CellModel* current_);
+    
 };
 
 

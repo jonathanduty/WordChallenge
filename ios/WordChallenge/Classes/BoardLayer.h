@@ -259,6 +259,8 @@ protected:
     
     BoardLayerCell* m_selectedCell;
     
+    WordModel* m_currentWord;
+    
     void setupBoard()
     {
         m_selectedCell = NULL;
@@ -329,12 +331,24 @@ public:
                 
             }
             
+            if (words->count() == 1 )
+            {
+                m_currentWord = words->getObjectAtIndex(0);
+                selectCell(m_currentWord->getNextCell(m_selectedCell->getCellModel()));
+            }
+            else if ( m_currentWord != NULL)
+            {
+                selectCell(m_currentWord->getNextCell(m_selectedCell->getCellModel()));
+            }
+            
+            
             CCNotificationCenter::sharedNotifCenter()->postNotification(WC_EVENT_LETTER_PLACED);
             
         }
         
         
     }
+    
     
     BoardLayerCell* getCell(int x, int y)
     {
@@ -350,6 +364,24 @@ public:
         }
     }
     
+    
+    void selectCell(CellModel* cell_)
+    {
+        if (cell_ == NULL)
+        {
+            return;
+        }
+        
+        this->selectCell(getCell(cell_->getX(),cell_->getY()));
+    }
+    
+    void selectCell(BoardLayerCell* cell_)
+    {
+        unselectCell();
+        cell_->setSelected();
+        m_selectedCell = cell_;
+    }
+    
     void handleTouchAtPoint(CCPoint point_)
     {
         
@@ -360,9 +392,7 @@ public:
         BoardLayerCell* cell = this->getCell(x,y);
         if ( cell != NULL && cell->isOpen())
         {
-            unselectCell();
-            cell->setSelected();
-            m_selectedCell = cell;
+            selectCell(cell);
         }
         
     }
