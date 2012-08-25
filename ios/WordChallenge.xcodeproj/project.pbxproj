@@ -156,6 +156,7 @@
 		312F87AA15E3A27F006F64DE /* WordModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 312F87A915E3A27F006F64DE /* WordModel.cpp */; };
 		315C356115E64D4E006EC00D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C356015E64D4E006EC00D /* libsqlite3.dylib */; };
 		315C356915E66474006EC00D /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 315C356815E66474006EC00D /* dictionary.db */; };
+		315C356D15E7BEE2006EC00D /* PlatformHelper_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 315C356B15E7BEE2006EC00D /* PlatformHelper_ios.mm */; };
 		319B4D3515DA62AB006125B7 /* closed_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3315DA62AB006125B7 /* closed_tile-hd.png */; };
 		319B4D3615DA62AB006125B7 /* closed_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3415DA62AB006125B7 /* closed_tile.png */; };
 		319B4D3A15DA63DD006125B7 /* open_tile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3815DA63DC006125B7 /* open_tile-hd.png */; };
@@ -484,6 +485,8 @@
 		315C356015E64D4E006EC00D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		315C356315E64DA5006EC00D /* WordDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordDictionary.h; path = Classes/WordDictionary.h; sourceTree = "<group>"; };
 		315C356815E66474006EC00D /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
+		315C356A15E7BEA9006EC00D /* PlatformHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlatformHelper.h; path = Classes/PlatformHelper.h; sourceTree = "<group>"; };
+		315C356B15E7BEE2006EC00D /* PlatformHelper_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatformHelper_ios.mm; path = ios/PlatformHelper_ios.mm; sourceTree = "<group>"; };
 		319B4D3315DA62AB006125B7 /* closed_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "closed_tile-hd.png"; path = "Resources/closed_tile-hd.png"; sourceTree = "<group>"; };
 		319B4D3415DA62AB006125B7 /* closed_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed_tile.png; path = Resources/closed_tile.png; sourceTree = "<group>"; };
 		319B4D3815DA63DC006125B7 /* open_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "open_tile-hd.png"; path = "Resources/open_tile-hd.png"; sourceTree = "<group>"; };
@@ -1109,6 +1112,7 @@
 				311123E315D66C1600D6DB8E /* AppController.mm */,
 				311123E515D66C1600D6DB8E /* RootViewController.h */,
 				311123E615D66C1600D6DB8E /* RootViewController.mm */,
+				315C356B15E7BEE2006EC00D /* PlatformHelper_ios.mm */,
 			);
 			name = ios;
 			sourceTree = "<group>";
@@ -1132,6 +1136,7 @@
 				312F87A915E3A27F006F64DE /* WordModel.cpp */,
 				312FC9E415E4ED010022E9DE /* ScoreHeader.h */,
 				315C356315E64DA5006EC00D /* WordDictionary.h */,
+				315C356A15E7BEA9006EC00D /* PlatformHelper.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1391,6 +1396,7 @@
 				3111241A15D67A5400D6DB8E /* CCScrollLayer.cpp in Sources */,
 				3111241D15D67C9000D6DB8E /* CCLayerPanZoom.cpp in Sources */,
 				312F87AA15E3A27F006F64DE /* WordModel.cpp in Sources */,
+				315C356D15E7BEE2006EC00D /* PlatformHelper_ios.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1406,7 +1412,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
-					"COCOS2D_DEBUG=1",
+					"COCOS2D_DEBUG=0",
 					USE_FILE32API,
 					TARGET_OS_IPHONE,
 				);
@@ -1461,7 +1467,7 @@
 				GCC_PREFIX_HEADER = WordChallenge/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = WordChallenge/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
@@ -1480,7 +1486,7 @@
 				GCC_PREFIX_HEADER = WordChallenge/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = WordChallenge/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",

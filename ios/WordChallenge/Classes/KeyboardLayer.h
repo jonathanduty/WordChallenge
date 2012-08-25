@@ -127,7 +127,7 @@ public:
     KeyboardLayer()
     {
         this->initWithFile("keyboard_background.png");
-        this->setPosition(ccp(160,70));
+        this->setPosition(ccp(160,60));
         
         this->buildKeyboard();
     }

@@ -48,9 +48,8 @@ bool HelloWorld::init()
     
     Json::Value root;
     Json::Reader reader;
-    fstream is;
-    is.open(CCFileUtils::fullPathFromRelativePath("board.json"));
-    bool parsingSuccessful = reader.parse(is, root );
+    
+    bool parsingSuccessful = reader.parse(getJsonFileContents("board"), root );
     if ( !parsingSuccessful ) 
     {
         CCLog("Failed to Parse Protodata file");

@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "json.h"
 #include <fstream>
+#include "PlatformHelper.h"
 using namespace cocos2d;
 
 
@@ -31,7 +32,7 @@ protected:
     
     ProtoDatabase()
     {
-        m_letersProtoData = this->loadFile(CCFileUtils::fullPathFromRelativePath("letters.json"))["letters"];
+        m_letersProtoData = this->loadFile("letters")["letters"];
 
     }
     
@@ -57,16 +58,15 @@ public:
     {
         Json::Value root;
         Json::Reader reader;
-        fstream is;
-        is.open(file.c_str());
-        bool parsingSuccessful = reader.parse(is, root );
+        
+        
+        bool parsingSuccessful = reader.parse(getJsonFileContents(file), root );
         if ( !parsingSuccessful ) 
         {
-            CCLog("Failed to Parse Protodata file");
+            CCLog("Failed to Parse Protodata file %s",file.c_str());
             return NULL;
         }
         return root;
-        
         
     }
     

@@ -1,18 +1,30 @@
-{"width":15,
-"height":15,
+{"width":10,
+"height":10,
 "words": 
 [
-    {"id":0, "begin_x":2,"begin_y":2, "length":5 , "orientation":"horizontal"},
-    {"id":1, "begin_x":3,"begin_y":1, "length":8 , "orientation":"vertical"},
-    {"id":2, "begin_x":2,"begin_y":7, "length":7 , "orientation":"horizontal"},
-    {"id":3, "begin_x":1,"begin_y":5, "length":6 , "orientation":"vertical"},
-    {"id":4, "begin_x":7,"begin_y":4, "length":9 , "orientation":"vertical"}
+    {"id":0, "begin_x":0,"begin_y":0, "length":5 , "orientation":"horizontal"},
+    {"id":1, "begin_x":0,"begin_y":0, "length":5 , "orientation":"vertical"},
+
+    {"id":2, "begin_x":0,"begin_y":3, "length":4 , "orientation":"horizontal"},
+    {"id":3, "begin_x":0,"begin_y":7, "length":3 , "orientation":"vertical"},
+    {"id":3, "begin_x":0,"begin_y":7, "length":4 , "orientation":"horizontal"},
+
+ 
+    {"id":3, "begin_x":3,"begin_y":3, "length":6 , "orientation":"vertical"},
+
+    {"id":3, "begin_x":2,"begin_y":5, "length":5 , "orientation":"horizontal"},
+
+    {"id":3, "begin_x":4,"begin_y":9, "length":5 , "orientation":"horizontal"},
+
+
+    {"id":3, "begin_x":9,"begin_y":6, "length":4 , "orientation":"vertical"},
+
+    {"id":3, "begin_x":7,"begin_y":7, "length":3 , "orientation":"horizontal"}
+
+ 
 ],
 "letters":
     [
-        {"proto_id":0, "x":3,"y":4, "given":true },
-        {"proto_id":6, "x":4,"y":2, "given":true }
-
     ]
         
 
