@@ -30,7 +30,7 @@ WordModel::~WordModel()
 
 void WordModel::cellChanged(CellModel* cell_)
 {
-    
+    m_correct = WordDictionary::instance()->wordCorrect( getWord());
 }
 
 void WordModel::addCell(CellModel* cell_)
@@ -67,6 +67,12 @@ bool WordModel::isFull()
 
 int WordModel::getPoints()
 {
+    
+    if ( !isCorrect())
+    {
+        return 0;
+    }
+    
     int score = 0;
     for (int i=0;i<m_cells->count();i++)
     {
@@ -103,11 +109,7 @@ std::string WordModel::getWord()
         
 }
 
-bool WordModel::isCorrect()
-{
-    return WordDictionary::instance()->wordCorrect( getWord());
-    
-}
+
 
 WordModelState WordModel::getState()
 {

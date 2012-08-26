@@ -33,6 +33,7 @@ protected:
     
     CCMutableArray<CellModel*>* m_cells;
     
+    bool m_correct;
 public:
     WordModel(Json::Value protoData_);
     
@@ -45,7 +46,7 @@ public:
     
     bool isFull();
     
-    bool isCorrect();
+    bool isCorrect() { return m_correct; }
     
     WordModelState getState();
     

@@ -62,7 +62,7 @@ protected:
         }
         m_letterProtoId=protoId_;
         m_letter = ProtoDatabase::shardInstance()->getLetterProtoDataById(protoId_);
-        
+        notifyWords();
         
     }
     

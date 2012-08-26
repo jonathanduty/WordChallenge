@@ -264,6 +264,7 @@ protected:
     void setupBoard()
     {
         m_selectedCell = NULL;
+        m_currentWord = NULL;
         
         m_width = BoardModel::instance()->getWidth();
         m_height = BoardModel::instance()->getHeight();

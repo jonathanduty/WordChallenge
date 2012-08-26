@@ -14,7 +14,7 @@
 
     {"id":3, "begin_x":2,"begin_y":5, "length":5 , "orientation":"horizontal"},
 
-    {"id":3, "begin_x":4,"begin_y":9, "length":5 , "orientation":"horizontal"},
+    {"id":3, "begin_x":4,"begin_y":9, "length":6 , "orientation":"horizontal"},
 
 
     {"id":3, "begin_x":9,"begin_y":6, "length":4 , "orientation":"vertical"},
