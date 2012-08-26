@@ -44,6 +44,17 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>FacebookAppID</key>
+	<string>359406377470898</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb359406377470898</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

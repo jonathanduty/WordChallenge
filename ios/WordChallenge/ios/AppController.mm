@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 
 #import "RootViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @implementation AppController
 
@@ -105,6 +107,14 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
 
 @end
 
