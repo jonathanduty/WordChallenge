@@ -9,7 +9,9 @@
 #include "PlatformHelper.h"
 
 #include "cocos2d.h"
+#include "SceneController.h"
 
+#import <FacebookSDK/FacebookSDK.h>
 
 
  std::string getFullPath(std::string file)
@@ -37,4 +39,15 @@ std::string getJsonFileContents(std::string fileName)
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileObjc ofType:@"json"];
     NSString *fileContent = [[NSString alloc] initWithContentsOfFile:filePath];
     return [fileContent cStringUsingEncoding:NSUTF8StringEncoding];
+}
+
+
+void facebookLogin()
+{
+    [FBSession openActiveSessionWithPermissions:nil allowLoginUI:YES
+                              completionHandler:^(FBSession *session,
+                                                  FBSessionState status,
+                                                  NSError *error) {
+                                  SceneController::instance()->showGameListScene();
+                              }];
 }

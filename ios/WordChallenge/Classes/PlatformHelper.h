@@ -15,4 +15,7 @@ std::string getFullPath(std::string file);
 
 std::string getJsonFileContents(std::string fileName);
 
+void facebookLogin();
+
+
 #endif

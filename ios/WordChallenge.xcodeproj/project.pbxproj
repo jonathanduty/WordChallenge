@@ -11,6 +11,8 @@
 		310552EC15ECC9370050A593 /* game_list_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EA15ECC9370050A593 /* game_list_cell.png */; };
 		310552F015ECCB4B0050A593 /* coin-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EE15ECCB4B0050A593 /* coin-hd.png */; };
 		310552F115ECCB4B0050A593 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EF15ECCB4B0050A593 /* coin.png */; };
+		310552F515EE1E6E0050A593 /* game_list_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552F315EE1E6E0050A593 /* game_list_button-hd.png */; };
+		310552F615EE1E6E0050A593 /* game_list_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552F415EE1E6E0050A593 /* game_list_button.png */; };
 		3111223315D66C1400D6DB8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223215D66C1400D6DB8E /* QuartzCore.framework */; };
 		3111223515D66C1400D6DB8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223415D66C1400D6DB8E /* OpenGLES.framework */; };
 		3111223715D66C1400D6DB8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223615D66C1400D6DB8E /* OpenAL.framework */; };
@@ -185,6 +187,9 @@
 		310552EE15ECCB4B0050A593 /* coin-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coin-hd.png"; path = "Resources/coin-hd.png"; sourceTree = "<group>"; };
 		310552EF15ECCB4B0050A593 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Resources/coin.png; sourceTree = "<group>"; };
 		310552F215ECD09A0050A593 /* SceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneController.h; path = Classes/SceneController.h; sourceTree = "<group>"; };
+		310552F315EE1E6E0050A593 /* game_list_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game_list_button-hd.png"; path = "Resources/game_list_button-hd.png"; sourceTree = "<group>"; };
+		310552F415EE1E6E0050A593 /* game_list_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_list_button.png; path = Resources/game_list_button.png; sourceTree = "<group>"; };
+		310552F715EE2EDA0050A593 /* LoginScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginScene.h; path = Classes/LoginScene.h; sourceTree = "<group>"; };
 		3111222E15D66C1400D6DB8E /* WordChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3111223215D66C1400D6DB8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3111223415D66C1400D6DB8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -592,6 +597,8 @@
 		3111224315D66C1400D6DB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				310552F315EE1E6E0050A593 /* game_list_button-hd.png */,
+				310552F415EE1E6E0050A593 /* game_list_button.png */,
 				310552EE15ECCB4B0050A593 /* coin-hd.png */,
 				310552EF15ECCB4B0050A593 /* coin.png */,
 				310552E915ECC9370050A593 /* game_list_cell-hd.png */,
@@ -1162,6 +1169,7 @@
 				315C356E15EA31AF006EC00D /* Letter.h */,
 				315B600415EA582C003307B7 /* PuzzleListScene.h */,
 				310552F215ECD09A0050A593 /* SceneController.h */,
+				310552F715EE2EDA0050A593 /* LoginScene.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1296,6 +1304,8 @@
 				310552EC15ECC9370050A593 /* game_list_cell.png in Resources */,
 				310552F015ECCB4B0050A593 /* coin-hd.png in Resources */,
 				310552F115ECCB4B0050A593 /* coin.png in Resources */,
+				310552F515EE1E6E0050A593 /* game_list_button-hd.png in Resources */,
+				310552F615EE1E6E0050A593 /* game_list_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

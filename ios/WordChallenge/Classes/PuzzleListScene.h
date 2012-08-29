@@ -29,13 +29,15 @@ protected:
         
         
         CCSprite* coinIcon = CCSprite::spriteWithFile("coin.png");
-        
+        coinIcon->setScale(.5);
         background->addChild(coinIcon);
+        CCSize size = background->getContentSize();
+        coinIcon->setPosition(ccp(20,size.height/2));
         
-        
-        //CCLabelTTF* points =  CCLabelTTF::labelWithString(stringForNum(m_letter["points"].asInt()).c_str(),WC_DEFAULT_FONT,10);
-        //points->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH*.8,WC_KEYBOARD_BUTTON_WIDTH*.2));
-        //background->addChild(points);
+        CCLabelTTF* coinLabel =  CCLabelTTF::labelWithString("100",WC_DEFAULT_FONT,20);
+        coinLabel->setPosition(ccp(60,size.height/2));
+        coinLabel->setColor(ccc3(0,0,0));
+        background->addChild(coinLabel);
         
         CCMenuItemSprite* sprite = CCMenuItemSprite::itemFromNormalSprite(background,
                                                                           selectedBackground,
@@ -46,7 +48,15 @@ protected:
         m_storeButton = CCMenu::menuWithItems(sprite, NULL);
         m_storeButton->retain();
         this->addChild(m_storeButton, 1);
+        
+        
+        CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+        m_storeButton->setPosition(ccp(175,winSize.height - 100));
+        
     }
+    
+    
+    
     
 public:
     
@@ -56,6 +66,9 @@ public:
     {
         
     }
+    
+    
+    
     
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
 	virtual bool init()
@@ -67,6 +80,7 @@ public:
             return false;
         }
         
+        this->buildStoreButton();
         
         
         return true;
