@@ -118,7 +118,7 @@ protected:
             button->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH/2 +  col * WC_KEYBOARD_BUTTON_WIDTH ,
                                     140-(row * WC_KEYBOARD_BUTTON_WIDTH)));
             this->addChild(button);
-            
+            button->release();
         }
     }
     

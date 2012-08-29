@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310552EB15ECC9370050A593 /* game_list_cell-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552E915ECC9370050A593 /* game_list_cell-hd.png */; };
+		310552EC15ECC9370050A593 /* game_list_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EA15ECC9370050A593 /* game_list_cell.png */; };
+		310552F015ECCB4B0050A593 /* coin-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EE15ECCB4B0050A593 /* coin-hd.png */; };
+		310552F115ECCB4B0050A593 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 310552EF15ECCB4B0050A593 /* coin.png */; };
 		3111223315D66C1400D6DB8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223215D66C1400D6DB8E /* QuartzCore.framework */; };
 		3111223515D66C1400D6DB8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223415D66C1400D6DB8E /* OpenGLES.framework */; };
 		3111223715D66C1400D6DB8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3111223615D66C1400D6DB8E /* OpenAL.framework */; };
@@ -176,6 +180,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310552E915ECC9370050A593 /* game_list_cell-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game_list_cell-hd.png"; path = "Resources/game_list_cell-hd.png"; sourceTree = "<group>"; };
+		310552EA15ECC9370050A593 /* game_list_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_list_cell.png; path = Resources/game_list_cell.png; sourceTree = "<group>"; };
+		310552EE15ECCB4B0050A593 /* coin-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coin-hd.png"; path = "Resources/coin-hd.png"; sourceTree = "<group>"; };
+		310552EF15ECCB4B0050A593 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Resources/coin.png; sourceTree = "<group>"; };
+		310552F215ECD09A0050A593 /* SceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneController.h; path = Classes/SceneController.h; sourceTree = "<group>"; };
 		3111222E15D66C1400D6DB8E /* WordChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3111223215D66C1400D6DB8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3111223415D66C1400D6DB8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -486,6 +495,7 @@
 		312FC9E415E4ED010022E9DE /* ScoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScoreHeader.h; path = Classes/ScoreHeader.h; sourceTree = "<group>"; };
 		315B5FFC15EA5525003307B7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		315B600215EA5567003307B7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		315B600415EA582C003307B7 /* PuzzleListScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleListScene.h; path = Classes/PuzzleListScene.h; sourceTree = "<group>"; };
 		315C356015E64D4E006EC00D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		315C356315E64DA5006EC00D /* WordDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordDictionary.h; path = Classes/WordDictionary.h; sourceTree = "<group>"; };
 		315C356815E66474006EC00D /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
@@ -582,6 +592,10 @@
 		3111224315D66C1400D6DB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				310552EE15ECCB4B0050A593 /* coin-hd.png */,
+				310552EF15ECCB4B0050A593 /* coin.png */,
+				310552E915ECC9370050A593 /* game_list_cell-hd.png */,
+				310552EA15ECC9370050A593 /* game_list_cell.png */,
 				315C356815E66474006EC00D /* dictionary.db */,
 				312F87A415E270C3006F64DE /* word_made_tile.png */,
 				312F87A515E270C3006F64DE /* word_made_tile-hd.png */,
@@ -1146,6 +1160,8 @@
 				315C356315E64DA5006EC00D /* WordDictionary.h */,
 				315C356A15E7BEA9006EC00D /* PlatformHelper.h */,
 				315C356E15EA31AF006EC00D /* Letter.h */,
+				315B600415EA582C003307B7 /* PuzzleListScene.h */,
+				310552F215ECD09A0050A593 /* SceneController.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1276,6 +1292,10 @@
 				312F87A715E270C3006F64DE /* word_made_tile-hd.png in Resources */,
 				315C356915E66474006EC00D /* dictionary.db in Resources */,
 				315B600315EA5567003307B7 /* FacebookSDKResources.bundle in Resources */,
+				310552EB15ECC9370050A593 /* game_list_cell-hd.png in Resources */,
+				310552EC15ECC9370050A593 /* game_list_cell.png in Resources */,
+				310552F015ECCB4B0050A593 /* coin-hd.png in Resources */,
+				310552F115ECCB4B0050A593 /* coin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
