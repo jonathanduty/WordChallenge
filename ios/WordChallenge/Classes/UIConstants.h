@@ -21,6 +21,7 @@ using namespace cocos2d;
 
 #define WC_EVENT_LETTER_PLACED "WC_EVENT_LETTER_PLACED"
 
+#define WC_EVENT_LOGIN_COMPLETE "WC_EVENT_LOGIN_COMPLETE"
 
 class ButtonPushedEvent : public CCObject
 {

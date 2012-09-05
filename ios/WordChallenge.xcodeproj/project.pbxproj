@@ -173,6 +173,7 @@
 		319B4D3F15DA872A006125B7 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D3D15DA872A006125B7 /* header.png */; };
 		319B4D4215DA892E006125B7 /* keyboard_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D4015DA892E006125B7 /* keyboard_background-hd.png */; };
 		319B4D4315DA892E006125B7 /* keyboard_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 319B4D4115DA892E006125B7 /* keyboard_background.png */; };
+		31B098F615F6479500C33D21 /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31B098F515F6479500C33D21 /* SceneController.cpp */; };
 		31B9BA5915DE03F800C46139 /* keyboard_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */; };
 		31B9BA5A15DE03F800C46139 /* keyboard_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5815DE03F800C46139 /* keyboard_button.png */; };
 		31B9BA5E15DE55B100C46139 /* letter_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B9BA5C15DE55B100C46139 /* letter_background.png */; };
@@ -493,11 +494,13 @@
 		3111241B15D67C6A00D6DB8E /* CCLayerPanZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCLayerPanZoom.h; path = Classes/CCLayerPanZoom.h; sourceTree = "<group>"; };
 		3111241C15D67C9000D6DB8E /* CCLayerPanZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCLayerPanZoom.cpp; path = Classes/CCLayerPanZoom.cpp; sourceTree = "<group>"; };
 		3111241E15D7EDF400D6DB8E /* BoardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardModel.h; path = Classes/BoardModel.h; sourceTree = "<group>"; };
+		312F870A15F61674003600AF /* TournamentSummaryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentSummaryScene.h; path = Classes/TournamentSummaryScene.h; sourceTree = "<group>"; };
 		312F87A415E270C3006F64DE /* word_made_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = word_made_tile.png; path = Resources/word_made_tile.png; sourceTree = "<group>"; };
 		312F87A515E270C3006F64DE /* word_made_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "word_made_tile-hd.png"; path = "Resources/word_made_tile-hd.png"; sourceTree = "<group>"; };
 		312F87A915E3A27F006F64DE /* WordModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WordModel.cpp; path = Classes/WordModel.cpp; sourceTree = "<group>"; };
 		312F87AB15E3A32A006F64DE /* WordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WordModel.h; path = Classes/WordModel.h; sourceTree = "<group>"; };
 		312FC9E415E4ED010022E9DE /* ScoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScoreHeader.h; path = Classes/ScoreHeader.h; sourceTree = "<group>"; };
+		3136C37315F0C6CE0061DB36 /* TournamentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentModel.h; path = Classes/TournamentModel.h; sourceTree = "<group>"; };
 		315B5FFC15EA5525003307B7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		315B600215EA5567003307B7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		315B600415EA582C003307B7 /* PuzzleListScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleListScene.h; path = Classes/PuzzleListScene.h; sourceTree = "<group>"; };
@@ -507,6 +510,7 @@
 		315C356A15E7BEA9006EC00D /* PlatformHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlatformHelper.h; path = Classes/PlatformHelper.h; sourceTree = "<group>"; };
 		315C356B15E7BEE2006EC00D /* PlatformHelper_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatformHelper_ios.mm; path = ios/PlatformHelper_ios.mm; sourceTree = "<group>"; };
 		315C356E15EA31AF006EC00D /* Letter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Letter.h; path = Classes/Letter.h; sourceTree = "<group>"; };
+		3160602A15F29C95000975D5 /* TournamentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentManager.h; path = Classes/TournamentManager.h; sourceTree = "<group>"; };
 		319B4D3315DA62AB006125B7 /* closed_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "closed_tile-hd.png"; path = "Resources/closed_tile-hd.png"; sourceTree = "<group>"; };
 		319B4D3415DA62AB006125B7 /* closed_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closed_tile.png; path = Resources/closed_tile.png; sourceTree = "<group>"; };
 		319B4D3815DA63DC006125B7 /* open_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "open_tile-hd.png"; path = "Resources/open_tile-hd.png"; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 		319B4D3D15DA872A006125B7 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Resources/header.png; sourceTree = "<group>"; };
 		319B4D4015DA892E006125B7 /* keyboard_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keyboard_background-hd.png"; path = "Resources/keyboard_background-hd.png"; sourceTree = "<group>"; };
 		319B4D4115DA892E006125B7 /* keyboard_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard_background.png; path = Resources/keyboard_background.png; sourceTree = "<group>"; };
+		31B098F515F6479500C33D21 /* SceneController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneController.cpp; path = Classes/SceneController.cpp; sourceTree = "<group>"; };
 		31B9BA5715DE03F800C46139 /* keyboard_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keyboard_button-hd.png"; path = "Resources/keyboard_button-hd.png"; sourceTree = "<group>"; };
 		31B9BA5815DE03F800C46139 /* keyboard_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard_button.png; path = Resources/keyboard_button.png; sourceTree = "<group>"; };
 		31B9BA5C15DE55B100C46139 /* letter_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = letter_background.png; path = Resources/letter_background.png; sourceTree = "<group>"; };
@@ -522,6 +527,7 @@
 		31B9BA6015DE7BAB00C46139 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIConstants.h; path = Classes/UIConstants.h; sourceTree = "<group>"; };
 		31B9BA6115DFD27100C46139 /* selected_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected_tile.png; path = Resources/selected_tile.png; sourceTree = "<group>"; };
 		31B9BA6215DFD27100C46139 /* selected_tile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selected_tile-hd.png"; path = "Resources/selected_tile-hd.png"; sourceTree = "<group>"; };
+		31E1ABDD15EEC43D00A3D3FA /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Classes/Player.h; sourceTree = "<group>"; };
 		31EFD90B15DD0C4700D73DF8 /* KeyboardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardLayer.h; path = Classes/KeyboardLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1169,7 +1175,12 @@
 				315C356E15EA31AF006EC00D /* Letter.h */,
 				315B600415EA582C003307B7 /* PuzzleListScene.h */,
 				310552F215ECD09A0050A593 /* SceneController.h */,
+				31B098F515F6479500C33D21 /* SceneController.cpp */,
 				310552F715EE2EDA0050A593 /* LoginScene.h */,
+				31E1ABDD15EEC43D00A3D3FA /* Player.h */,
+				3136C37315F0C6CE0061DB36 /* TournamentModel.h */,
+				3160602A15F29C95000975D5 /* TournamentManager.h */,
+				312F870A15F61674003600AF /* TournamentSummaryScene.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1437,6 +1448,7 @@
 				3111241D15D67C9000D6DB8E /* CCLayerPanZoom.cpp in Sources */,
 				312F87AA15E3A27F006F64DE /* WordModel.cpp in Sources */,
 				315C356D15E7BEE2006EC00D /* PlatformHelper_ios.mm in Sources */,
+				31B098F615F6479500C33D21 /* SceneController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

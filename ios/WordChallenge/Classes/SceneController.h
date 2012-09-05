@@ -10,10 +10,12 @@
 #define WordChallenge_SceneController_h
 
 #include "cocos2d.h"
-#include "LoginScene.h"
-#include "PuzzleListScene.h"
+#include "UIConstants.h"
+#include "TournamentModel.h"
+
 using namespace cocos2d;
 
+class TournamentSummaryScene;
 
 enum {
     SCENE_CONTROLLER_GAME_LIST = 0,
@@ -23,54 +25,29 @@ enum {
 } typedef SceneControllerState;
 
 
-class SceneController;
 
-static SceneController* s_sceneController = NULL;
 
 class SceneController : public CCObject
 {
 protected:
-    SceneController()
-    {
-        
-    }
-    
+
+    SceneController();
+
 public:
     
-    static SceneController* instance()
-    {
-        if (s_sceneController == NULL)
-        {
-            s_sceneController = new SceneController();
-        }
-        return s_sceneController;
-    }
+    ~SceneController();
     
-    void showLoginScene()
-    {
-        
-        
-        // create a scene. it's an autorelease object
-        CCScene *pScene = LoginScene::scene();
-        
-        // run
-        CCDirector::sharedDirector()->runWithScene(pScene);
-
-    }
+    static SceneController* instance();
     
-    void showGameScene()
-    {
-        
-    }
+    void showLoginScene();
+    void showGameScene(TournamentModel* tournament_);
     
-    void showGameListScene( )
-    {
-        // create a scene. it's an autorelease object
-        CCScene *pScene = PuzzleListScene::scene();
-        
-        // run
-        CCDirector::sharedDirector()->replaceScene(pScene);
-    }
+    void showGameListScene( );
+    
+    
+    void showTournamentSummaryScene(TournamentModel* tournament_);
+    
+    virtual void notificationLoginCompleteCallback(CCObject* obj);
 };
 
 #endif

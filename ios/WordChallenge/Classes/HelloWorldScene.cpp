@@ -16,19 +16,25 @@ using namespace CocosDenshion;
 #define WC_BOARD_ZORDER 5
 
 
-CCScene* HelloWorld::scene()
+CCScene* HelloWorld::scene(TournamentModel* tournament_)
 {
 	// 'scene' is an autorelease object
 	CCScene *scene = CCScene::node();
 	
 	// 'layer' is an autorelease object
-	HelloWorld *layer = HelloWorld::node();
+	HelloWorld *layer = new HelloWorld(tournament_);
 
 	// add layer as a child to scene
 	scene->addChild(layer);
 
 	// return the scene
 	return scene;
+}
+
+
+HelloWorld::HelloWorld(TournamentModel* tournament_)
+{
+    this->init();
 }
 
 // on "init" you need to initialize your instance

@@ -14,6 +14,7 @@
 #include "ProtoDatabase.h"
 #include "WordDictionary.h"
 #include "SceneController.h"
+#include "TournamentManager.h"
 
 USING_NS_CC;
 
@@ -80,7 +81,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // initialize our protodata.
     ProtoDatabase::shardInstance();
     WordDictionary::instance();
-    
+    TournamentManager::instance();
     
 	// initialize director
 	CCDirector *pDirector = CCDirector::sharedDirector();

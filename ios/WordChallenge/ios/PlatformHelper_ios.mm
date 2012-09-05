@@ -9,8 +9,9 @@
 #include "PlatformHelper.h"
 
 #include "cocos2d.h"
+#include "UIConstants.h"
 #include "SceneController.h"
-
+#include "Player.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 
@@ -41,6 +42,19 @@ std::string getJsonFileContents(std::string fileName)
     return [fileContent cStringUsingEncoding:NSUTF8StringEncoding];
 }
 
+void facebookMe()
+{
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                                           id<FBGraphUser> user,
+                                                           NSError *error) {
+        Player::initCurrentPlayerWithFacebook(
+                    [user.id cStringUsingEncoding:NSUTF8StringEncoding],
+                    [user.name cStringUsingEncoding:NSUTF8StringEncoding]);
+        
+        CCNotificationCenter::sharedNotifCenter()->postNotification(WC_EVENT_LOGIN_COMPLETE);
+    }];
+}
+
 
 void facebookLogin()
 {
@@ -48,6 +62,6 @@ void facebookLogin()
                               completionHandler:^(FBSession *session,
                                                   FBSessionState status,
                                                   NSError *error) {
-                                  SceneController::instance()->showGameListScene();
+                                  facebookMe();
                               }];
 }

@@ -11,8 +11,70 @@
 
 
 #include "cocos2d.h"
+#include "TournamentModel.h"
+#include "SceneController.h"
 
 using namespace cocos2d;
+
+
+class TournamentListButton : public CCMenu
+{
+    TournamentModel* m_model;
+    
+    CCMenu* m_menu;
+    
+public:
+    TournamentListButton(TournamentModel* model_)
+    {
+        m_model = model_;
+        m_model->retain();
+        
+        CCSprite* background = CCSprite::spriteWithFile("game_list_cell.png");
+        CCSprite* background2 = CCSprite::spriteWithFile("game_list_cell.png");
+
+        CCSize size = background->getContentSize();
+
+        CCLabelTTF* coinLabel =  CCLabelTTF::labelWithString("100",WC_DEFAULT_FONT,20);
+        coinLabel->setPosition(ccp(60,size.height/2));
+        coinLabel->setColor(ccc3(0,0,0));
+        this->addChild(coinLabel,2);
+        
+        CCMenuItemSprite* sprite = CCMenuItemSprite::itemFromNormalSprite(background,
+                                                                          background2,
+                                                                          NULL, this,
+                                                                          menu_selector(TournamentListButton::cellPressed));
+        m_menu = CCMenu::menuWithItems(sprite, NULL);
+        m_menu->retain();
+        
+        
+        
+        this->addChild(m_menu,1);
+
+    }
+    
+    
+    virtual void cellPressed(CCObject* obj)
+    {
+        SceneController::instance()->showTournamentSummaryScene(m_model);
+    }
+    
+    virtual void setPosition(CCPoint point_)
+    {
+
+        m_menu->setPosition(point_);
+    }
+    
+    ~TournamentListButton()
+    {
+        CC_SAFE_RELEASE(m_model);
+        CC_SAFE_RELEASE(m_menu);
+    }
+    
+    
+    
+};
+
+
 
 class PuzzleListScene : public CCLayer
 {
@@ -55,7 +117,19 @@ protected:
         
     }
     
-    
+    void buildTournamentButtons()
+    {
+        
+        CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+
+        
+        TournamentModel* model = new TournamentModel(1,"test");
+        model->autorelease();
+        TournamentListButton* button = new TournamentListButton(model);
+        button->setPosition(ccp(winSize.width/2,winSize.height - 200));
+        this->addChild(button,1);
+        button->release();
+    }
     
     
 public:
@@ -81,7 +155,7 @@ public:
         }
         
         this->buildStoreButton();
-        
+        this->buildTournamentButtons();
         
         return true;
         
