@@ -2,8 +2,8 @@
 //  WordChallengeAppController.mm
 //  WordChallenge
 //
-//  Created by Jonathan Duty on 9/10/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Created by Jonathan Duty on 8/25/13.
+//  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 #import <UIKit/UIKit.h>
 #import "AppController.h"
@@ -12,9 +12,11 @@
 #import "AppDelegate.h"
 
 #import "RootViewController.h"
-#import "TestFlight.h"
 
 @implementation AppController
+
+@synthesize window;
+@synthesize viewController;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -24,9 +26,6 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
-    [TestFlight takeOff:@"bd729d68-f71f-4e4e-ae86-39fb6b99cb32"];
-    
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
@@ -37,7 +36,7 @@ static AppDelegate s_sharedApplication;
                               preserveBackbuffer: NO
                                       sharegroup: nil
                                    multiSampling: NO
-                                 numberOfSamples: 0 ];
+                                 numberOfSamples:0 ];
 
     // Use RootViewController manage EAGLView
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
@@ -45,7 +44,17 @@ static AppDelegate s_sharedApplication;
     viewController.view = __glView;
 
     // Set RootViewController to window
-    [window addSubview: viewController.view];
+    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
+    {
+        // warning: addSubView doesn't work on iOS6
+        [window addSubview: viewController.view];
+    }
+    else
+    {
+        // use this method on ios6
+        [window setRootViewController:viewController];
+    }
+    
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden: YES];
