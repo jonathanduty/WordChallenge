@@ -10,6 +10,7 @@
 #define WordChallenge_BoardLayer_h
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -162,8 +163,8 @@ public:
         else 
         {
             m_open = false;
-            m_background = CCSprite::create("closed_tile.png");
-            this->addChild(m_background);
+            //m_background = CCSprite::create("closed_tile.png");
+            //this->addChild(m_background);
         }
     }
     
@@ -242,6 +243,8 @@ public:
 
 
 
+
+
 class BoardLayer : public CCLayer
 {
     
@@ -287,17 +290,24 @@ protected:
     
 public:
     
-    BoardLayer()
+    CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(BoardLayer, create);
+    
+    virtual bool init()
     {
-        init();
+        if (!CCLayer::init())
+        {
+            return false;
+        }
+        
         m_cells = new CCDictionary();
         this->refreshFromModel();
         
         
         CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(BoardLayer::keyboardButtonPressed),WC_EVENT_KEYBOARD_PRESSED,NULL);
         
+        return true;
     }
-    
+   
   
     
     ~BoardLayer()
@@ -464,5 +474,17 @@ public:
     }
     
 };
+
+class BoardLayerLoader : public cocos2d::extension::CCLayerLoader
+{
+public:
+    CCB_STATIC_NEW_AUTORELEASE_OBJECT_METHOD(BoardLayerLoader, loader);
+    static BoardLayer* load();
+    
+protected:
+    CCB_VIRTUAL_NEW_AUTORELEASE_CREATECCNODE_METHOD(BoardLayer);
+    
+};
+
 
 #endif

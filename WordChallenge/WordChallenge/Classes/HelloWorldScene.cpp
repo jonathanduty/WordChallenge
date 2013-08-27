@@ -64,13 +64,13 @@ bool HelloWorld::init()
     BoardModel::loadNewModel(root);
     
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
+    /*
 	BoardLayer* layer = new BoardLayer();
     layer->refreshFromModel();
     layer->setScale(0.56);
     layer->setPosition(-125,15);
     this->addChild(layer,WC_BOARD_ZORDER);
-	
+	*/
    
 
     
@@ -84,13 +84,17 @@ bool HelloWorld::init()
     m_scoreHeader->setPosition(ccp(winSize.width/2,470));
     this->addChild(m_scoreHeader,WC_HUD_ZORDER+1);
     
-    m_keyboardLayer = new KeyboardLayer();
-    this->addChild(m_keyboardLayer,WC_HUD_ZORDER);
+    //m_keyboardLayer = new KeyboardLayer();
+    //this->addChild(m_keyboardLayer,WC_HUD_ZORDER);
     
     // Create a default CCNodeLoaderLibrary. As we won't be using
     // code connections in this tutorial don't worry about it.
     extension::CCNodeLoaderLibrary* nodeLoaderLibrary;
     nodeLoaderLibrary = extension::CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
+    nodeLoaderLibrary->registerCCNodeLoader("BoardLayer", BoardLayerLoader::loader());
+    nodeLoaderLibrary->registerCCNodeLoader("KeyboardLayer", KeyboardLayerLoader::loader());
+
+    
     // Create a new CCBReader with a default CCNodeLoaderLibrary
     // This can take a lot of parameters to use code connections and more
     extension::CCBReader* ccbReader = new extension::CCBReader(nodeLoaderLibrary);

@@ -10,6 +10,7 @@
 #define WordChallenge_KeyboardLayer_h
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
 #include "ProtoDatabase.h"
 #include "json/json.h"
 #include "UIConstants.h"
@@ -95,7 +96,7 @@ public:
 };
 
 
-class KeyboardLayer : public CCSprite
+class KeyboardLayer : public CCLayer
 {
 protected:
     
@@ -116,20 +117,26 @@ protected:
             Json::Value letter = proto->getLetterProtoDataById(i);
             KeyboardButton* button = new KeyboardButton(letter);
             button->setPosition(ccp(WC_KEYBOARD_BUTTON_WIDTH/2 +  col * WC_KEYBOARD_BUTTON_WIDTH ,
-                                    140-(row * WC_KEYBOARD_BUTTON_WIDTH)));
-            this->addChild(button);
+                                    80-(row * WC_KEYBOARD_BUTTON_WIDTH)));
+            this->addChild(button,10);
             button->release();
         }
     }
     
 public:
     
-    KeyboardLayer()
+    CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(KeyboardLayer, create);
+
+    
+    virtual bool init()
     {
-        this->initWithFile("keyboard_background.png");
-        this->setPosition(ccp(160,60));
+        if (!CCLayer::init())
+        {
+            return false;
+        }
         
         this->buildKeyboard();
+        return true;
     }
     
     
@@ -139,5 +146,16 @@ public:
     
 };
 
+
+class KeyboardLayerLoader : public cocos2d::extension::CCLayerLoader
+{
+public:
+    CCB_STATIC_NEW_AUTORELEASE_OBJECT_METHOD(KeyboardLayerLoader, loader);
+    static KeyboardLayer* load();
+    
+protected:
+    CCB_VIRTUAL_NEW_AUTORELEASE_CREATECCNODE_METHOD(KeyboardLayer);
+    
+};
 
 #endif
