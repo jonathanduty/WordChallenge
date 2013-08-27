@@ -7,7 +7,7 @@
 #include "BoardModel.h"
 #include <fstream>
 #include "ProtoDatabase.h"
-
+#include "cocos-ext.h"
 using namespace cocos2d;
 using namespace CocosDenshion;
 
@@ -87,8 +87,20 @@ bool HelloWorld::init()
     m_keyboardLayer = new KeyboardLayer();
     this->addChild(m_keyboardLayer,WC_HUD_ZORDER);
     
-	return true;
-}
+    // Create a default CCNodeLoaderLibrary. As we won't be using
+    // code connections in this tutorial don't worry about it.
+    extension::CCNodeLoaderLibrary* nodeLoaderLibrary;
+    nodeLoaderLibrary = extension::CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
+    // Create a new CCBReader with a default CCNodeLoaderLibrary
+    // This can take a lot of parameters to use code connections and more
+    extension::CCBReader* ccbReader = new extension::CCBReader(nodeLoaderLibrary);
+    // Load the main node from the CocosBuilder file
+    CCNode* node = ccbReader->readNodeGraphFromFile("BoardLayer");
+    this->addChild(node); // Add the loaded node to the scene (this)
+    // As nobody called ccbReader->autoRelease(), returning now would cause
+    // a memory leak. We can call autoRelease or delete it ourselves.
+    delete ccbReader;
+    return true;}
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
