@@ -26,8 +26,11 @@ class SignupLayer : public CCLayer,
 {
 protected:
     
-    CCNode* m_usernameAnchor;
-    CCNode* m_emailAnchor;
+    extension::CCControlButton* m_usernamePlaceholder;
+    extension::CCControlButton* m_emailPlaceholder;
+    
+    extension::CCEditBox* m_emailEditBox;
+    extension::CCEditBox* m_usernameEditBox;
    
     
 public:
@@ -57,6 +60,17 @@ public:
     void signupButtonPressed(cocos2d::CCObject * pSender, cocos2d::extension::CCControlEvent pCCControlEvent)
     {
         CCLOG("signupButtonPressed");
+    }
+    
+    
+    void finishSetup()
+    {
+        m_emailEditBox = extension::CCEditBox::create(m_emailPlaceholder->getPreferredSize(),
+                                                      extension::CCScale9Sprite::createWithSpriteFrameName("ccbButton.png") );
+        m_emailEditBox->setPosition(m_emailPlaceholder->getPosition());
+        this->addChild(m_emailEditBox);
+        m_emailPlaceholder->setVisible(false);
+        
     }
     
     static CCScene* scene();

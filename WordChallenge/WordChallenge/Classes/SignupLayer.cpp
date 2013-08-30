@@ -26,8 +26,11 @@ CCScene* SignupLayer::scene()
     // This can take a lot of parameters to use code connections and more
     extension::CCBReader* ccbReader = new extension::CCBReader(nodeLoaderLibrary);
     // Load the main node from the CocosBuilder file
-    CCNode* node = ccbReader->readNodeGraphFromFile("SignupLayer");
-    scene->addChild(node); // Add the loaded node to the scene (this)
+    SignupLayer* layer = (SignupLayer*)ccbReader->readNodeGraphFromFile("SignupLayer");
+    
+    layer->finishSetup();
+    
+    scene->addChild(layer); // Add the loaded node to the scene (this)
     // As nobody called ccbReader->autoRelease(), returning now would cause
     // a memory leak. We can call autoRelease or delete it ourselves.
     delete ccbReader;
@@ -43,8 +46,8 @@ bool SignupLayer::onAssignCCBCustomProperty(cocos2d::CCObject *pTarget, const ch
 
 bool SignupLayer::onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode)
 {
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "usernameAnchor", CCNode*, this->m_usernameAnchor);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "emailAnchor", CCNode*, this->m_emailAnchor);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "usernamePlaceholder", CCControlButton*, this->m_usernamePlaceholder);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "emailPlaceholder", CCControlButton*, this->m_emailPlaceholder);
     return false;
 }
 

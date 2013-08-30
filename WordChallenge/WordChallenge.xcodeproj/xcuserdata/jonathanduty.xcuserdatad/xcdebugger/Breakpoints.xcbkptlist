@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WordChallenge/Classes/SignupLayer.cpp"
-         timestampString = "399552114.023412"
+         timestampString = "399577263.488062"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "46"
-         endingLineNumber = "46"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
          landmarkName = "SignupLayer::onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode)"
          landmarkType = "5">
       </FileBreakpoint>
