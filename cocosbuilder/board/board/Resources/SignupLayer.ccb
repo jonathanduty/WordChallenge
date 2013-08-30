@@ -30,25 +30,13 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Background</string>
+				<string>background</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
 				<integer>0</integer>
 				<key>properties</key>
 				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>-4</real>
-							<real>1</real>
-							<integer>0</integer>
-						</array>
-					</dict>
 					<dict>
 						<key>name</key>
 						<string>anchorPoint</string>
@@ -68,8 +56,8 @@
 						<key>value</key>
 						<array>
 							<real>0.44999998807907104</real>
-							<real>0.44999998807907104</real>
-							<true/>
+							<real>1</real>
+							<false/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -96,13 +84,13 @@
 			</dict>
 			<dict>
 				<key>baseClass</key>
-				<string>CCLayer</string>
+				<string>CCControlButton</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string>BoardLayer</string>
+				<string></string>
 				<key>displayName</key>
-				<string>BoardLayer</string>
+				<string>SignupButton</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -116,8 +104,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>99</real>
+							<real>103</real>
+							<real>163</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -139,9 +127,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.56000000238418579</real>
-							<real>0.56000000238418579</real>
-							<true/>
+							<real>1</real>
+							<real>1</real>
+							<false/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -151,13 +139,23 @@
 						<key>type</key>
 						<string>Check</string>
 						<key>value</key>
-						<true/>
+						<false/>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>touchEnabled</string>
-						<key>platform</key>
-						<string>iOS</string>
+						<string>ccControl</string>
+						<key>type</key>
+						<string>BlockCCControl</string>
+						<key>value</key>
+						<array>
+							<string>onSignupButtonClick</string>
+							<integer>1</integer>
+							<integer>32</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>enabled</string>
 						<key>type</key>
 						<string>Check</string>
 						<key>value</key>
@@ -165,15 +163,134 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>mouseEnabled</string>
-						<key>platform</key>
-						<string>Mac</string>
+						<string>title|1</string>
+						<key>type</key>
+						<string>String</string>
+						<key>value</key>
+						<string>Signup</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>titleTTF|1</string>
+						<key>type</key>
+						<string>FontTTF</string>
+						<key>value</key>
+						<string>Helvetica</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>titleTTFSize|1</string>
+						<key>type</key>
+						<string>FloatScale</string>
+						<key>value</key>
+						<array>
+							<real>12</real>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>labelAnchorPoint</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.5</real>
+							<real>0.5</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>preferedSize</string>
+						<key>type</key>
+						<string>Size</string>
+						<key>value</key>
+						<array>
+							<real>120</real>
+							<real>40</real>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>zoomOnTouchDown</string>
 						<key>type</key>
 						<string>Check</string>
 						<key>value</key>
 						<true/>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundSpriteFrame|1</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string>ccbResources/ccbDefaultImages.plist</string>
+							<string>ccbButton.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>titleColor|1</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<integer>255</integer>
+							<integer>255</integer>
+							<integer>255</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundSpriteFrame|2</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string>ccbResources/ccbDefaultImages.plist</string>
+							<string>ccbButtonHilite.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>titleColor|2</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<integer>255</integer>
+							<integer>255</integer>
+							<integer>255</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundSpriteFrame|3</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string>ccbResources/ccbDefaultImages.plist</string>
+							<string>ccbButtonDisabled.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>titleColor|3</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<integer>255</integer>
+							<integer>255</integer>
+							<integer>255</integer>
+						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -182,17 +299,17 @@
 				<array>
 					<dict>
 						<key>baseClass</key>
-						<string>CCSprite</string>
+						<string>CCNode</string>
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
 						<string></string>
 						<key>displayName</key>
-						<string>background</string>
+						<string>CCNode</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>emalAnchor</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -202,8 +319,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>-1</real>
-									<real>-30</real>
+									<real>161</real>
+									<real>251</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -225,9 +342,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.44999998807907104</real>
-									<real>0.44999998807907104</real>
-									<true/>
+									<real>1</real>
+									<real>1</real>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -239,24 +356,74 @@
 								<key>value</key>
 								<false/>
 							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCNode</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>CCNode</string>
+						<key>memberVarAssignmentName</key>
+						<string>usernameAnchor</string>
+						<key>memberVarAssignmentType</key>
+						<integer>1</integer>
+						<key>properties</key>
+						<array>
 							<dict>
 								<key>name</key>
-								<string>displayFrame</string>
+								<string>position</string>
 								<key>type</key>
-								<string>SpriteFrame</string>
+								<string>Position</string>
 								<key>value</key>
 								<array>
-									<string>board.plist</string>
-									<string>Alphabet_Pool.png</string>
+									<real>162</real>
+									<real>310</real>
+									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.0</real>
+									<real>0.0</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
 							</dict>
 						</array>
 					</dict>
 				</array>
 				<key>customClass</key>
-				<string>KeyboardLayer</string>
+				<string></string>
 				<key>displayName</key>
-				<string>KeyboardLayer</string>
+				<string>CCLayer</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -319,11 +486,9 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>SignupLayer</string>
 		<key>displayName</key>
-		<string>GameLayer</string>
-		<key>jsController</key>
-		<string>BoardLayer</string>
+		<string>SignupLayer</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
@@ -349,8 +514,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.5</real>
-					<real>0.5</real>
+					<real>0.0</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>

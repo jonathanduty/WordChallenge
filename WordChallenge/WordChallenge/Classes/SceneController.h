@@ -21,7 +21,8 @@ enum {
     SCENE_CONTROLLER_GAME_LIST = 0,
     SCENE_CONTROLLER_GAME,
     SCENE_CONTROLLER_STORE,
-    SCENE_LOGIN_SCENE
+    SCENE_LOGIN_SCENE,
+    SCENE_SIGNUP_SCENE
 } typedef SceneControllerState;
 
 
@@ -30,6 +31,9 @@ enum {
 class SceneController : public CCObject
 {
 protected:
+    
+    CCScene* m_signupScene;
+    CCScene* m_GameScene;
 
     SceneController();
 
@@ -39,6 +43,7 @@ public:
     
     static SceneController* instance();
     
+    void showSignupScene();
     void showLoginScene();
     void showGameScene(TournamentModel* tournament_);
     

@@ -21,7 +21,7 @@ class Player;
 
 static Player* g_player;
 
-
+	
 class Player : public CCObject
 {
 protected:

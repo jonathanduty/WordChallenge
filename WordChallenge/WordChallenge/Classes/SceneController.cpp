@@ -9,6 +9,7 @@
 #include "SceneController.h"
 #include "LoginScene.h"
 #include "HelloWorldScene.h"
+#include "SignupLayer.h"
 
 static SceneController* s_sceneController = NULL;
 
@@ -63,6 +64,12 @@ void SceneController::showGameListScene( )
     //CCDirector::sharedDirector()->replaceScene(pScene);
 }
 
+void SceneController::showSignupScene()
+{
+    CCScene* pScene = SignupLayer::scene();
+    CCDirector::sharedDirector()->runWithScene(pScene);
+
+}
 
 void SceneController::showTournamentSummaryScene(TournamentModel* tournament_)
 {

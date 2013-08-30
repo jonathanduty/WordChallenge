@@ -99,8 +99,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// set FPS. the default value is 1.0/60 if you don't call this
 	pDirector->setAnimationInterval(1.0 / 60);
 
-    SceneController::instance()->showGameScene(NULL);
-    
+    //SceneController::instance()->showGameScene(NULL);
+    SceneController::instance()->showSignupScene();
 	
 	return true;
 }
