@@ -71,6 +71,14 @@ public:
         this->addChild(m_emailEditBox);
         m_emailPlaceholder->setVisible(false);
         
+        
+        m_usernameEditBox = extension::CCEditBox::create(m_usernamePlaceholder->getPreferredSize(),
+                                                      extension::CCScale9Sprite::createWithSpriteFrameName("ccbButton.png") );
+        m_usernameEditBox->setPosition(m_usernamePlaceholder->getPosition());
+        this->addChild(m_usernameEditBox);
+        m_usernamePlaceholder->setVisible(false);
+
+        
     }
     
     static CCScene* scene();

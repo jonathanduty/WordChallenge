@@ -12,22 +12,33 @@
 #include <iostream>
 #include "cocos2d.h"
 #include <string>
-
+#include "json/json.h"
 using namespace cocos2d;
 using namespace std;
 
 class UserSession : public CCObject
 {
 protected:
-    static UserSession* s_instance;
+        
+    bool m_validSession = false;
+
     
     void loadFromDefaults()
     {
-        CCUserDefaults::sharedDefaults();
     
     }
     
 public:
+    
+    static UserSession* sharedInstance();
+    
+    
+    bool hasValidSession()
+    {
+        return m_validSession;
+    }
+    
+    
     string m_userName;
     string m_email;
     bool m_fbConnected;
@@ -38,9 +49,11 @@ public:
     string m_kumacoreId;
     
     
+    
+    
     void save()
     {
-        
+       
         
         
     }

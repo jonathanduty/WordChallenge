@@ -12,7 +12,6 @@
 #include "cocos2d.h"
 #include "UIConstants.h"
 #include "TournamentModel.h"
-
 using namespace cocos2d;
 
 class TournamentSummaryScene;
@@ -34,7 +33,8 @@ protected:
     
     CCScene* m_signupScene;
     CCScene* m_GameScene;
-
+    CCScene* m_gameListScene;
+    
     SceneController();
 
 public:
@@ -43,10 +43,12 @@ public:
     
     static SceneController* instance();
     
+    void begin();
+    
     void showSignupScene();
     void showLoginScene();
     void showGameScene(TournamentModel* tournament_);
-    
+
     void showGameListScene( );
     
     

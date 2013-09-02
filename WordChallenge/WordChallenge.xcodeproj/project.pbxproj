@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A4279D517D1432B008461AD /* UserSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A4279D417D1432B008461AD /* UserSession.cpp */; };
+		6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A711BAC17D4CB650049332C /* GameListLayer.cpp */; };
+		6A711BB517D4E36C0049332C /* GameListLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A711BB317D4E36C0049332C /* GameListLayer.ccbi */; };
+		6A711BB617D4E36C0049332C /* GameListScrollLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */; };
 		6A85A2D917CF4F1300C41C16 /* PlatformHelper_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A85A2D817CF4F1300C41C16 /* PlatformHelper_ios.mm */; };
 		6A85A2DC17CF51C100C41C16 /* SignupLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A85A2DA17CF51C100C41C16 /* SignupLayer.cpp */; };
 		6A9CBCF217CB0EA500B689A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9CBCF117CB0EA500B689A0 /* QuartzCore.framework */; };
@@ -337,6 +341,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A4279D417D1432B008461AD /* UserSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserSession.cpp; path = Classes/UserSession.cpp; sourceTree = "<group>"; };
+		6A711BAC17D4CB650049332C /* GameListLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameListLayer.cpp; path = Classes/GameListLayer.cpp; sourceTree = "<group>"; };
+		6A711BAD17D4CB650049332C /* GameListLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListLayer.h; path = Classes/GameListLayer.h; sourceTree = "<group>"; };
+		6A711BB317D4E36C0049332C /* GameListLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameListLayer.ccbi; path = WordChallenge/ccb/GameListLayer.ccbi; sourceTree = "<group>"; };
+		6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameListScrollLayer.ccbi; path = WordChallenge/ccb/GameListScrollLayer.ccbi; sourceTree = "<group>"; };
 		6A85A2D317CF43D000C41C16 /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSession.h; path = Classes/UserSession.h; sourceTree = "<group>"; };
 		6A85A2D817CF4F1300C41C16 /* PlatformHelper_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatformHelper_ios.mm; path = ios/PlatformHelper_ios.mm; sourceTree = "<group>"; };
 		6A85A2DA17CF51C100C41C16 /* SignupLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SignupLayer.cpp; path = Classes/SignupLayer.cpp; sourceTree = "<group>"; };
@@ -2290,8 +2299,11 @@
 				6A9CC09617CB0EA900B689A0 /* HelloWorldScene.h */,
 				6A9CC09717CB0EA900B689A0 /* HelloWorldScene.cpp */,
 				6A85A2D317CF43D000C41C16 /* UserSession.h */,
+				6A4279D417D1432B008461AD /* UserSession.cpp */,
 				6A85A2DA17CF51C100C41C16 /* SignupLayer.cpp */,
 				6A85A2DB17CF51C100C41C16 /* SignupLayer.h */,
+				6A711BAC17D4CB650049332C /* GameListLayer.cpp */,
+				6A711BAD17D4CB650049332C /* GameListLayer.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2352,6 +2364,8 @@
 		6A9FDE8617D09E6900870293 /* ccb */ = {
 			isa = PBXGroup;
 			children = (
+				6A711BB317D4E36C0049332C /* GameListLayer.ccbi */,
+				6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */,
 				6A9FDE8717D09E7600870293 /* board.plist */,
 				6A9FDE8817D09E7600870293 /* board.png */,
 				6A9FDE8917D09E7600870293 /* BoardLayer.ccbi */,
@@ -2473,6 +2487,8 @@
 				6A9FDE9C17D09E7600870293 /* resources-iphone in Resources */,
 				6A9FDE9D17D09E7600870293 /* resources-iphonehd in Resources */,
 				6A9FDE9E17D09E7600870293 /* SignupLayer.ccbi in Resources */,
+				6A711BB517D4E36C0049332C /* GameListLayer.ccbi in Resources */,
+				6A711BB617D4E36C0049332C /* GameListScrollLayer.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2740,6 +2756,8 @@
 				6A85A2D917CF4F1300C41C16 /* PlatformHelper_ios.mm in Sources */,
 				6A85A2DC17CF51C100C41C16 /* SignupLayer.cpp in Sources */,
 				6A9FDE9917D09E7600870293 /* MainScene.js in Sources */,
+				6A4279D517D1432B008461AD /* UserSession.cpp in Sources */,
+				6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

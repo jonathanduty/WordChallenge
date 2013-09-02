@@ -10,6 +10,8 @@
 #include "LoginScene.h"
 #include "HelloWorldScene.h"
 #include "SignupLayer.h"
+#include "UserSession.h"
+#include "GameListLayer.h"
 
 static SceneController* s_sceneController = NULL;
 
@@ -32,6 +34,21 @@ SceneController* SceneController::instance()
         s_sceneController = new SceneController();
     }
     return s_sceneController;
+}
+
+
+void SceneController::begin()
+{
+    if (!UserSession::sharedInstance()->hasValidSession())
+    {
+        //showSignupScene();
+        showGameListScene();
+    }
+    else
+    {
+        showGameScene(NULL);
+    }
+    
 }
 
 void SceneController::showLoginScene()
@@ -57,11 +74,17 @@ void SceneController::showGameScene(TournamentModel* tournament_)
 
 void SceneController::showGameListScene( )
 {
+    if ( m_gameListScene == NULL)
+    {
+        m_gameListScene =GameListLayer::scene();
+        
+    }
+    
     // create a scene. it's an autorelease object
     //CCScene *pScene = PuzzleListScene::scene();
     
-    // run
-    //CCDirector::sharedDirector()->replaceScene(pScene);
+    
+    CCDirector::sharedDirector()->runWithScene(m_gameListScene);
 }
 
 void SceneController::showSignupScene()

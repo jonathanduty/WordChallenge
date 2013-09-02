@@ -100,7 +100,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	pDirector->setAnimationInterval(1.0 / 60);
 
     //SceneController::instance()->showGameScene(NULL);
-    SceneController::instance()->showSignupScene();
+    SceneController::instance()->begin();
 	
 	return true;
 }

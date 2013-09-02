@@ -1,0 +1,62 @@
+//
+//  GameListLayer.cpp
+//  WordChallenge
+//
+//  Created by Jonathan Duty on 9/2/13.
+//
+//
+
+#include "GameListLayer.h"
+CCScene* GameListLayer::scene()
+{
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    
+    // Create a default CCNodeLoaderLibrary. As we won't be using
+    // code connections in this tutorial don't worry about it.
+    extension::CCNodeLoaderLibrary* nodeLoaderLibrary;
+    nodeLoaderLibrary = extension::CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
+    nodeLoaderLibrary->registerCCNodeLoader("GameListLayer", GameListLayerLoader::loader());
+    
+    
+    // Create a new CCBReader with a default CCNodeLoaderLibrary
+    // This can take a lot of parameters to use code connections and more
+    extension::CCBReader* ccbReader = new extension::CCBReader(nodeLoaderLibrary);
+    // Load the main node from the CocosBuilder file
+    GameListLayer* layer = (GameListLayer*)ccbReader->readNodeGraphFromFile("GameListLayer");
+    
+   // layer->finishSetup();
+    
+    scene->addChild(layer); // Add the loaded node to the scene (this)
+    // As nobody called ccbReader->autoRelease(), returning now would cause
+    // a memory leak. We can call autoRelease or delete it ourselves.
+    delete ccbReader;
+    
+    
+    // return the scene
+    return scene;
+}
+bool GameListLayer::onAssignCCBCustomProperty(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::extension::CCBValue *pCCBValue)
+{
+    return false;
+}
+
+bool GameListLayer::onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode)
+{
+   // CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "usernamePlaceholder", CCControlButton*, this->m_usernamePlaceholder);
+   // CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "emailPlaceholder", CCControlButton*, this->m_emailPlaceholder);
+    return false;
+}
+
+cocos2d::extension::SEL_CCControlHandler GameListLayer::onResolveCCBCCControlSelector(CCObject * pTarget, const char* pSelectorName)
+{
+    //CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onSignupButtonClick", SignupLayer::signupButtonPressed);
+    
+    return NULL;
+    
+}
+
+cocos2d::SEL_MenuHandler GameListLayer::onResolveCCBCCMenuItemSelector(CCObject * pTarget, const char* pSelectorName)
+{
+    return NULL;
+}
