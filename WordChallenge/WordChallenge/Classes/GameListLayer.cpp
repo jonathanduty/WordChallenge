@@ -27,6 +27,8 @@ CCScene* GameListLayer::scene()
     
    // layer->finishSetup();
     
+    layer->finishLoad();
+    
     scene->addChild(layer); // Add the loaded node to the scene (this)
     // As nobody called ccbReader->autoRelease(), returning now would cause
     // a memory leak. We can call autoRelease or delete it ourselves.
@@ -43,7 +45,7 @@ bool GameListLayer::onAssignCCBCustomProperty(cocos2d::CCObject *pTarget, const 
 
 bool GameListLayer::onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode)
 {
-   // CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "usernamePlaceholder", CCControlButton*, this->m_usernamePlaceholder);
+   CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "gameListScrollView", extension::CCScrollView*, this->m_scrollView);
    // CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "emailPlaceholder", CCControlButton*, this->m_emailPlaceholder);
     return false;
 }

@@ -11,6 +11,7 @@
 		6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A711BAC17D4CB650049332C /* GameListLayer.cpp */; };
 		6A711BB517D4E36C0049332C /* GameListLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A711BB317D4E36C0049332C /* GameListLayer.ccbi */; };
 		6A711BB617D4E36C0049332C /* GameListScrollLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */; };
+		6A711BBA17D5E21B0049332C /* GameListTableDataSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A711BB817D5E21B0049332C /* GameListTableDataSource.cpp */; };
 		6A85A2D917CF4F1300C41C16 /* PlatformHelper_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A85A2D817CF4F1300C41C16 /* PlatformHelper_ios.mm */; };
 		6A85A2DC17CF51C100C41C16 /* SignupLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A85A2DA17CF51C100C41C16 /* SignupLayer.cpp */; };
 		6A9CBCF217CB0EA500B689A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9CBCF117CB0EA500B689A0 /* QuartzCore.framework */; };
@@ -346,6 +347,9 @@
 		6A711BAD17D4CB650049332C /* GameListLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListLayer.h; path = Classes/GameListLayer.h; sourceTree = "<group>"; };
 		6A711BB317D4E36C0049332C /* GameListLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameListLayer.ccbi; path = WordChallenge/ccb/GameListLayer.ccbi; sourceTree = "<group>"; };
 		6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameListScrollLayer.ccbi; path = WordChallenge/ccb/GameListScrollLayer.ccbi; sourceTree = "<group>"; };
+		6A711BB717D4E6D00049332C /* CCTableViewLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTableViewLoader.h; path = Classes/CCTableViewLoader.h; sourceTree = "<group>"; };
+		6A711BB817D5E21B0049332C /* GameListTableDataSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameListTableDataSource.cpp; path = Classes/GameListTableDataSource.cpp; sourceTree = "<group>"; };
+		6A711BB917D5E21B0049332C /* GameListTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListTableDataSource.h; path = Classes/GameListTableDataSource.h; sourceTree = "<group>"; };
 		6A85A2D317CF43D000C41C16 /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSession.h; path = Classes/UserSession.h; sourceTree = "<group>"; };
 		6A85A2D817CF4F1300C41C16 /* PlatformHelper_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatformHelper_ios.mm; path = ios/PlatformHelper_ios.mm; sourceTree = "<group>"; };
 		6A85A2DA17CF51C100C41C16 /* SignupLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SignupLayer.cpp; path = Classes/SignupLayer.cpp; sourceTree = "<group>"; };
@@ -2304,6 +2308,9 @@
 				6A85A2DB17CF51C100C41C16 /* SignupLayer.h */,
 				6A711BAC17D4CB650049332C /* GameListLayer.cpp */,
 				6A711BAD17D4CB650049332C /* GameListLayer.h */,
+				6A711BB717D4E6D00049332C /* CCTableViewLoader.h */,
+				6A711BB817D5E21B0049332C /* GameListTableDataSource.cpp */,
+				6A711BB917D5E21B0049332C /* GameListTableDataSource.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2758,6 +2765,7 @@
 				6A9FDE9917D09E7600870293 /* MainScene.js in Sources */,
 				6A4279D517D1432B008461AD /* UserSession.cpp in Sources */,
 				6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */,
+				6A711BBA17D5E21B0049332C /* GameListTableDataSource.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
