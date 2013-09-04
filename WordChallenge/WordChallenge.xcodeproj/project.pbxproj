@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A29BE9F17D6579A00B8B5A2 /* GameListCellLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A29BE9D17D6579A00B8B5A2 /* GameListCellLayer.cpp */; };
+		6A37C0F217D739560091900A /* GameListCellLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C0F117D739560091900A /* GameListCellLayer.ccbi */; };
 		6A4279D517D1432B008461AD /* UserSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A4279D417D1432B008461AD /* UserSession.cpp */; };
 		6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A711BAC17D4CB650049332C /* GameListLayer.cpp */; };
 		6A711BB517D4E36C0049332C /* GameListLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 6A711BB317D4E36C0049332C /* GameListLayer.ccbi */; };
@@ -342,6 +344,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A29BE9D17D6579A00B8B5A2 /* GameListCellLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameListCellLayer.cpp; path = Classes/GameListCellLayer.cpp; sourceTree = "<group>"; };
+		6A29BE9E17D6579A00B8B5A2 /* GameListCellLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListCellLayer.h; path = Classes/GameListCellLayer.h; sourceTree = "<group>"; };
+		6A37C0F117D739560091900A /* GameListCellLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameListCellLayer.ccbi; path = WordChallenge/ccb/GameListCellLayer.ccbi; sourceTree = "<group>"; };
 		6A4279D417D1432B008461AD /* UserSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserSession.cpp; path = Classes/UserSession.cpp; sourceTree = "<group>"; };
 		6A711BAC17D4CB650049332C /* GameListLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameListLayer.cpp; path = Classes/GameListLayer.cpp; sourceTree = "<group>"; };
 		6A711BAD17D4CB650049332C /* GameListLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameListLayer.h; path = Classes/GameListLayer.h; sourceTree = "<group>"; };
@@ -2311,6 +2316,8 @@
 				6A711BB717D4E6D00049332C /* CCTableViewLoader.h */,
 				6A711BB817D5E21B0049332C /* GameListTableDataSource.cpp */,
 				6A711BB917D5E21B0049332C /* GameListTableDataSource.h */,
+				6A29BE9D17D6579A00B8B5A2 /* GameListCellLayer.cpp */,
+				6A29BE9E17D6579A00B8B5A2 /* GameListCellLayer.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2371,6 +2378,7 @@
 		6A9FDE8617D09E6900870293 /* ccb */ = {
 			isa = PBXGroup;
 			children = (
+				6A37C0F117D739560091900A /* GameListCellLayer.ccbi */,
 				6A711BB317D4E36C0049332C /* GameListLayer.ccbi */,
 				6A711BB417D4E36C0049332C /* GameListScrollLayer.ccbi */,
 				6A9FDE8717D09E7600870293 /* board.plist */,
@@ -2496,6 +2504,7 @@
 				6A9FDE9E17D09E7600870293 /* SignupLayer.ccbi in Resources */,
 				6A711BB517D4E36C0049332C /* GameListLayer.ccbi in Resources */,
 				6A711BB617D4E36C0049332C /* GameListScrollLayer.ccbi in Resources */,
+				6A37C0F217D739560091900A /* GameListCellLayer.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2766,6 +2775,7 @@
 				6A4279D517D1432B008461AD /* UserSession.cpp in Sources */,
 				6A711BAE17D4CB650049332C /* GameListLayer.cpp in Sources */,
 				6A711BBA17D5E21B0049332C /* GameListTableDataSource.cpp in Sources */,
+				6A29BE9F17D6579A00B8B5A2 /* GameListCellLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

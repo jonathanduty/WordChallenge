@@ -12,12 +12,21 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "cocos-ext.h"
-
+#include "GameListCellLayer.h"
 using namespace cocos2d;
 
 
-class GameListTableDataSource : public extension::CCTableViewDataSource, public CCObject
+class GameListTableDataSource :
+    public extension::CCTableViewDataSource,
+    public extension::CCTableViewDelegate,
+    public CCObject
 {
+    
+    virtual bool hasFixedCellSize()
+    {
+        return false;
+    }
+    
     
     /**
      * cell size for a given index
@@ -34,8 +43,11 @@ class GameListTableDataSource : public extension::CCTableViewDataSource, public 
      * @param table table to hold the instances of Class
      * @return cell size
      */
-    CCSize cellSizeForTable(extension::CCTableView *table) {
-        return CCSize(100, 100);
+    CCSize cellSizeForTable(extension::CCTableView *table)
+    {
+        CCSize size = CCDirector::sharedDirector()->getWinSize();
+        
+        return CCSize(size.width,100 );
     };
     /**
      * a cell instance at a given index
@@ -51,10 +63,13 @@ class GameListTableDataSource : public extension::CCTableViewDataSource, public 
         {
             cell = new extension::CCTableViewCell();
             cell->autorelease();
-            CCLabelTTF* label = CCLabelTTF::create("I'm a cell", "Helvetica", 20);
-            label->setPosition(CCPointZero);
-            label->setAnchorPoint(CCPointZero);
-            cell->addChild(label);
+            GameListCellLayer* layer = GameListCellLayer::layer();
+            
+            layer->setPosition(CCPointZero);
+            layer->setAnchorPoint(CCPointZero);
+                
+            
+            cell->addChild(layer);
             
         }
         return cell;
@@ -71,6 +86,58 @@ class GameListTableDataSource : public extension::CCTableViewDataSource, public 
     {
         return 20;
     }
+    
+    
+    /**
+     * Delegate to respond touch event
+     *
+     * @param table table contains the given cell
+     * @param cell  cell that is touched
+     */
+     void tableCellTouched(extension::CCTableView* table, extension::CCTableViewCell* cell)
+    {
+        CCLog("tableCellTouched");
+    }
+    
+    /**
+     * Delegate to respond a table cell press event.
+     *
+     * @param table table contains the given cell
+     * @param cell  cell that is pressed
+     */
+     void tableCellHighlight(extension::CCTableView* table, extension::CCTableViewCell* cell)
+    {
+    }
+    
+    /**
+     * Delegate to respond a table cell release event
+     *
+     * @param table table contains the given cell
+     * @param cell  cell that is pressed
+     */
+     void tableCellUnhighlight(extension::CCTableView* table, extension::CCTableViewCell* cell){};
+    
+    /**
+     * Delegate called when the cell is about to be recycled. Immediately
+     * after this call the cell will be removed from the scene graph and
+     * recycled.
+     *
+     * @param table table contains the given cell
+     * @param cell  cell that is pressed
+     */
+     void tableCellWillRecycle(extension::CCTableView* table, extension::CCTableViewCell* cell){};
+    
+    
+    void scrollViewDidScroll(extension::CCScrollView* view)
+    {
+        
+    }
+    virtual void scrollViewDidZoom(extension::CCScrollView* view)
+    {
+        
+    }
+
+    
 };
 
 #endif /* defined(__WordChallenge__GameListTableDataSource__) */

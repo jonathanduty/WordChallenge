@@ -64,5 +64,13 @@ public:
         
         
     }
+    
+    
+    CCArray* getOpenTournaments()
+    {
+        CCArray* array = CCArray::create();
+        
+        
+    }
 };
 #endif /* defined(__WordChallenge__UserSession__) */

@@ -53,11 +53,13 @@ public:
     
     void finishLoad()
     {
-        extension::CCTableView* tableView = extension::CCTableView::create(m_dataSource, m_scrollView->getContentSize());
+        extension::CCTableView* tableView = extension::CCTableView::create(m_dataSource, m_scrollView->getViewSize());
         tableView->setDirection(extension::kCCScrollViewDirectionVertical);
         tableView->setPosition(m_scrollView->getPosition());
-        //tableView->setDelegate(this);
+        tableView->setAnchorPoint(m_scrollView->getAnchorPoint());
+        tableView->setDelegate(m_dataSource);
         tableView->setVerticalFillOrder(extension::kCCTableViewFillTopDown);
+        tableView->setClippingToBounds(true);
         this->addChild(tableView);
         
         this->removeChild(m_scrollView);

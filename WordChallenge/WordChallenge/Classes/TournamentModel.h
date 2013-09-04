@@ -63,6 +63,11 @@ protected:
     
     CCArray* m_players;
     
+    int m_iteraton;
+    
+    int m_buyIn;
+    
+    double m_deadline;
     
     void init()
     {
@@ -73,18 +78,23 @@ protected:
 public:
     
     
-    TournamentModel(long long id_,string name_)
+    TournamentModel(long long id_,string name_,int iteration_, int buyIn_, double deadline_)
     {
         m_id = id_;
         m_name = name_;
+        m_iteraton = iteration_;
+        m_buyIn = buyIn_;
+        m_deadline = deadline_;
         this->init();
     }
     
     
     long long getId() { return m_id; }
     string getName() { return m_name;}
+    int getIteration() {return m_iteraton;}
     CCArray* getPlayers() { return m_players;}
-    
+    int getBuyIn(){return m_buyIn;}
+    double getDeadline() {return m_deadline;}
 };
 
 
